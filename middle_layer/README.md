@@ -5,7 +5,7 @@ Notes
 
 1. Identifying where the coding regions are and generating the coding DNA sequence
 
-  - DONE
+  - DONE. Checked against [online translation tool](https://web.expasy.org/translate/)
 
 2. Aligning the protein translation with the DNA coding sequence
 
