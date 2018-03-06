@@ -1,0 +1,22 @@
+Notes
+====
+
+### Tasks:
+
+1. Identifying where the coding regions are and generating the coding DNA sequence
+
+  - DONE
+
+2. Aligning the protein translation with the DNA coding sequence
+
+3. Identifying restriction enzyme (RE) sites
+
+4. Providing a list of known REs to the front end
+
+5. Identify whether an RE has restriction sites within the coding region
+
+6. Counting codon usage in a gene
+
+7. Calculating codon usage across all coding regions
+
+8. Extracting information from the database layer (e.g. the complete gene list or individual gene information)
