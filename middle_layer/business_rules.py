@@ -236,7 +236,36 @@ def find_restriction_sites(enzyme, sequence):
 
 		coordinates.append([m.start() + 1, m.start() + len(enzyme_3prime_seq)])
 
-	return(coordinates)
+	if len(coordinates) > 0:
+
+		return(coordinates)
+
+	else:
+
+		return None
+
+def which_enzymes_cut(sequence):
+	
+	""" Find out which of the restriction enzymes we are interested in have cutting sites in a sequence
+
+	>>> sequence = 'GGATCCXXXGAATTC'
+
+	>>> which_enzymes_cut(sequence)
+	['EcoRI', 'BamHI']
+
+	"""
+
+	restriction_enzymes = ['EcoRI', 'BamHI', 'BsuMI']
+
+	enzymes_for_this_sequence = []
+
+	for enzyme in restriction_enzymes:
+
+		if find_restriction_sites(enzyme, sequence) != None:
+
+			enzymes_for_this_sequence.append(enzyme)
+
+	return(enzymes_for_this_sequence)
 
 
 #######################
