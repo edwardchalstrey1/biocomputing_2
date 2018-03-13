@@ -194,6 +194,51 @@ def count_codons(sequence):
 
 	return(codon_dict)
 
+def find_restriction_sites(enzyme, sequence):
+
+	""" Find the start/end positions of cutting sites for a given restriction enzyme in a DNA sequence,
+		with the first position in the sequence as 1 (not 0)
+
+	>>> sequence = 'XXXGAATTCXXXCTTAAG'
+
+	>>> find_restriction_sites('EcoRI', sequence)
+	[[4, 9], [13, 18]]
+
+	"""
+
+	sequence = sequence.upper()
+
+	enzyme_5prime_dict = {
+
+		'EcoRI': 'GAATTC',
+		'BamHI': 'GGATCC',
+		'BsuMI': 'CTCGAG'
+
+	}
+
+	enzyme_5prime_seq = enzyme_5prime_dict.get(enzyme, 'N/A')
+
+	enzyme_3prime_seq = enzyme_5prime_seq[::-1] # 3 prime seq is reverse of 5 prime seq
+
+	coordinates = []
+
+	import re
+	
+	p = re.compile(enzyme_5prime_seq)
+
+	for m in p.finditer(sequence):
+
+		coordinates.append([m.start() + 1, m.start() + len(enzyme_5prime_seq)])
+
+	p = re.compile(enzyme_3prime_seq)
+
+	for m in p.finditer(sequence):
+
+		coordinates.append([m.start() + 1, m.start() + len(enzyme_3prime_seq)])
+
+	return(coordinates)
+
+
 #######################
 ### Test functions: ###
 #######################
