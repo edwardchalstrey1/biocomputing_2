@@ -149,6 +149,23 @@ def are_sequences_aligned(dna_seq, amino_acid_seq):
 
 	return(are_aligned)
 
+def get_gene_list():
+
+	genes = ['ABC', 'XYZ', 'ETC']
+
+	import xml.etree.ElementTree as ET
+
+	genes_xml = ET.Element('genes')
+
+	for gene in genes:
+
+		gene_tag = ET.SubElement(genes_xml, 'gene')
+		gene_tag.text = gene
+
+	return(ET.tostring(genes_xml))
+
+    
+
 #######################
 ### Test functions: ###
 #######################
