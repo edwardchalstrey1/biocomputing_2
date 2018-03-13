@@ -121,19 +121,33 @@ def dna_codon_to_amino_acid(codon):
 
 
 
-def check_alignment(dna_seq, amino_acid_Seq):
+def are_sequences_aligned(dna_seq, amino_acid_seq):
 
 	""" When the coding dna sequence is taken from an entry from a Genbank file,
 		the codons should already be aligned with the protein translation taken from that entry
+
+		>>> are_sequences_aligned('TTTTTAGCTTGTAAGAGT', 'FLACKS')
+		True
+
 	"""
+
+	are_aligned = True
 
 	import re
 
 	codons = re.findall('\w\w\w',dna_seq)
 
+	counter = 0
 
+	for amino_acid in amino_acid_seq:
 
-	return(codons)
+		if(amino_acid != dna_codon_to_amino_acid(codons[counter])):
+
+			are_aligned = False
+
+		counter += 1
+
+	return(are_aligned)
 
 #######################
 ### Test functions: ###
