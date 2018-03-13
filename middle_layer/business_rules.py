@@ -126,8 +126,8 @@ def are_sequences_aligned(dna_seq, amino_acid_seq):
 	""" When the coding dna sequence is taken from an entry from a Genbank file,
 		the codons should already be aligned with the protein translation taken from that entry
 
-		>>> are_sequences_aligned('TTTTTAGCTTGTAAGAGT', 'FLACKS')
-		True
+	>>> are_sequences_aligned('TTTTTAGCTTGTAAGAGT', 'FLACKS')
+	True
 
 	"""
 
@@ -135,7 +135,7 @@ def are_sequences_aligned(dna_seq, amino_acid_seq):
 
 	import re
 
-	codons = re.findall('\w\w\w',dna_seq)
+	codons = re.findall('\w\w\w', dna_seq)
 
 	counter = 0
 
@@ -151,7 +151,7 @@ def are_sequences_aligned(dna_seq, amino_acid_seq):
 
 def get_gene_list():
 
-	genes = ['ABC', 'XYZ', 'ETC']
+	genes = ['ABC', 'XYZ', 'ETC'] # dummy
 
 	import xml.etree.ElementTree as ET
 
@@ -164,7 +164,35 @@ def get_gene_list():
 
 	return(ET.tostring(genes_xml))
 
-    
+def count_codons(sequence):
+
+	""" Splits the DNA sequence into triplet codons, starting from position 1 of the sequence
+		and counts the frequency of codons, storing in a dictionary.
+
+	>>> sequence = 'AAATTTCCCGGGAAA'
+
+	>>> print(count_codons(sequence)['AAA'])
+	2
+
+	"""
+
+	import re
+
+	codons = re.findall('\w\w\w', sequence)
+
+	codon_dict = {}
+
+	for codon in codons:
+
+		if codon not in codon_dict:
+
+			codon_dict[codon] = 1
+
+		else:
+
+			codon_dict[codon] += 1
+
+	return(codon_dict)
 
 #######################
 ### Test functions: ###
