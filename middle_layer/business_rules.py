@@ -162,7 +162,7 @@ def get_gene_list():
 		gene_tag = ET.SubElement(genes_xml, 'gene')
 		gene_tag.text = gene
 
-	return(ET.tostring(genes_xml))
+	return(ET.tostring(genes_xml).decode("utf-8"))
 
 def count_codons(sequence):
 
