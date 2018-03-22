@@ -27,3 +27,13 @@ html += "</body>\n"
 html += "</html>\n"
 
 print(html)
+
+print("\n")
+
+print(b.get_protein_product_list())
+print("\n")
+
+print(b.get_genbank_accession_list())
+print("\n")
+
+print(b.get_chromosomal_location_list())

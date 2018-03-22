@@ -3,6 +3,38 @@
 
 import dummy_data as dd
 
+def get_gene_list():
+
+	""" Returns the list of gene names stored in the database by calling a function from the database wrapper script """
+
+	genes =  dd.get_gene_list()
+
+	return(genes)
+
+def get_protein_product_list():
+
+	""" Returns the list of protein products stored in the database by calling a function from the database wrapper script """
+
+	proteins =  dd.get_protein_product_list()
+
+	return(proteins)
+
+def get_genbank_accession_list():
+
+	""" Returns the list of Genbank accessions stored in the database by calling a function from the database wrapper script """
+
+	accessions =  dd.get_genbank_accession_list()
+
+	return(accessions)
+
+def get_chromosomal_location_list():
+
+	""" Returns the list of chromosomal locations stored in the database by calling a function from the database wrapper script """
+
+	locations =  dd.get_chromosomal_location_list()
+
+	return(locations)
+
 def get_coding_seq(origin_seq, cds_coordinates):
 
 	""" Retrieves the coding sequence from a sequence string, given a list of sublists containing start and end coding positions
@@ -150,14 +182,6 @@ def are_sequences_aligned(dna_seq, amino_acid_seq):
 		counter += 1
 
 	return(are_aligned)
-
-def get_gene_list():
-
-	""" Returns the list of gene names stored in the database by calling a function from the database wrapper script """
-
-	genes =  dd.get_gene_list()
-
-	return(genes)
 
 def count_codons(sequence):
 

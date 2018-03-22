@@ -39,9 +39,14 @@ CHECK REST LECTURE
 
 **Query functions I expect from database layer will be:**
 
-- One that returns a list of all the gene names
+- Ones that return a list:
 
-- Ones that return the sequence with CDS coordinates based on a search for any of these:
+  - all the gene names
+  - proteins
+  - genbank accession
+  - chromosomal location
+
+- Ones that return the DNA sequence with CDS coordinates and protein sequence based on a search for any of these:
 
   - gene identifiers (as given by a CDS /gene="XXXX" record in the Genbank file)
   - protein product names (as given by CDS /product="XXXX")

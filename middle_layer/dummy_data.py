@@ -6,5 +6,16 @@ protein_translation_VPS4B = "MSSTSPNLQKAIDLASKAAQEDKAGNYEEALQLYQHAVQYFLHVVKYEAQG
 
 def get_gene_list():
 
-	return(['ABC', 'XYZ', 'ETC'])
+	return(['SCCA1', 'SMAD4', 'ME2'])
 
+def get_protein_product_list():
+
+	return(['U58b small nucleolar RNA', 'U58a small nucleolar RNA', 'Putative U58 small nucleolar RNA'])
+
+def get_genbank_accession_list():
+
+	return(['AB065574', 'AB065915', 'AF025886'])
+
+def get_chromosomal_location_list():
+
+	return(['18p11.2', '18q21.1', '18q21.2-q22'])
