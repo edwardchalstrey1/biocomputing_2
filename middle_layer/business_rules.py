@@ -3,6 +3,10 @@
 
 import dummy_data as dd
 
+#######################
+### List functions: ###
+#######################
+
 def get_gene_list():
 
 	""" Returns the list of gene names stored in the database by calling a function from the database wrapper script """
@@ -34,6 +38,11 @@ def get_chromosomal_location_list():
 	locations =  dd.get_chromosomal_location_list()
 
 	return(locations)
+
+
+############################################################
+### Functions to be used to generate info for front end: ###
+############################################################
 
 def get_coding_seq(origin_seq, cds_coordinates):
 
@@ -152,8 +161,6 @@ def dna_codon_to_amino_acid(codon):
 		'GGG': 'G'
 
 	}.get(codon, 'X')
-
-
 
 def are_sequences_aligned(dna_seq, amino_acid_seq):
 
@@ -286,10 +293,20 @@ def which_enzymes_cut(sequence):
 
 	return(enzymes_for_this_sequence)
 
+###############################
+### Main business function: ###
+###############################
 
-#######################
-### Test functions: ###
-#######################
+def get_entries():
+
+	entries = []
+
+	return(entries)
+
+
+###########################
+### Test the functions: ###
+###########################
 
 if __name__ == "__main__":
 
