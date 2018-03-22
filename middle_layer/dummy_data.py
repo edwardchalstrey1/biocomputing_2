@@ -16,7 +16,7 @@ def get_entries(gene=None, prot=None, acc=None, loc=None):
 
 	VPS4B_dict = {
 		"gene": "VPS4B",
-		"prot": protein_translation_VPS4B,
+		"prot": product_VPS4B,
 		"acc": accession_VPS4B,
 		"cds": cds_coordinates_VPS4B,
 		"dna": origin_seq_VPS4B,

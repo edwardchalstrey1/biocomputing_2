@@ -3,6 +3,12 @@
 
 import dummy_data as dd
 
+########################
+### Global vaiables: ###
+########################
+
+restriction_enzymes = ['EcoRI', 'BamHI', 'BsuMI']
+
 #######################
 ### List functions: ###
 #######################
@@ -281,8 +287,6 @@ def which_enzymes_cut(sequence):
 
 	"""
 
-	restriction_enzymes = ['EcoRI', 'BamHI', 'BsuMI']
-
 	enzymes_for_this_sequence = []
 
 	for enzyme in restriction_enzymes:
@@ -297,9 +301,33 @@ def which_enzymes_cut(sequence):
 ### Main business function: ###
 ###############################
 
-def get_entries():
+def get_entries(gene=None, prot=None, acc=None, loc=None):
+
+	""" Get all of the information required by the front end for a search based on gene, protein, Genbank accession or chromosomal location """
+
+	database_entries = dd.get_entries(gene=gene, prot=prot, acc=acc, loc=loc)
 
 	entries = []
+
+	for entry in database_entries:
+
+		entry["cds_seq"] = get_coding_seq(entry["dna"], entry["cds"])
+
+		entry["are_aligned"] = are_sequences_aligned(entry["cds_seq"], entry["aa"])
+
+		entry["codon_count"] = count_codons(entry["cds_seq"])
+
+		enzymes = which_enzymes_cut(entry["cds_seq"])
+
+		restriction_sites = {}
+
+		for enzyme in enzymes:
+
+			restriction_sites[enzyme] = find_restriction_sites(enzyme, entry["cds_seq"])
+
+		entry["restriction_sites"] = restriction_sites
+
+		entries.append(entry)
 
 	return(entries)
 
