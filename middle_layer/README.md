@@ -1,6 +1,8 @@
 Notes
 ====
 
+CHECK REST LECTURE
+
 ### Tasks:
 
 1. Identifying where the coding regions are and generating the coding DNA sequence
@@ -23,6 +25,8 @@ Notes
 
 5. Identify whether an RE has restriction sites within the coding region
 
+  - See 4
+
 6. Counting codon usage in a gene
 
   - DONE
@@ -31,11 +35,16 @@ Notes
 
 8. Extracting information from the database layer (e.g. the complete gene list or individual gene information) (Some of these may simply be wrappers to database layer code)
 
-  - [Output XML](http://stackabuse.com/reading-and-writing-xml-files-in-python/)
-
 ### General notes
 
-**Receiving queries from the website CGI script:** Get the rest thing to talk to your python, look at the cgi script practical. Make a dummy cgi script or just get the call/link to work. Understand from this how your python files should be. should each function have a separate file/module? I should output XML. Query variables should have the same names as XML tags
+**Query functions I expect from database layer will be:**
 
-**Getting acess to the database:** Call Adams python module.
+- One that returns a list of all the gene names
+
+- Ones that return the sequence with CDS coordinates based on a search for any of these:
+
+  - gene identifiers (as given by a CDS /gene="XXXX" record in the Genbank file)
+  - protein product names (as given by CDS /product="XXXX")
+  - Genbank accession (as given by ACCESSION)
+  - chromosomal location (e.g. 8q24.3, as given by source /map="XXXX")
 
