@@ -1,6 +1,8 @@
 
 """ Business logic"""
 
+import dummy_data as dd
+
 def get_coding_seq(origin_seq, cds_coordinates):
 
 	""" Retrieves the coding sequence from a sequence string, given a list of sublists containing start and end coding positions
@@ -151,18 +153,11 @@ def are_sequences_aligned(dna_seq, amino_acid_seq):
 
 def get_gene_list():
 
-	genes = ['ABC', 'XYZ', 'ETC'] # dummy
+	""" Returns the list of gene names stored in the database by calling a function from the database wrapper script """
 
-	import xml.etree.ElementTree as ET
+	genes =  dd.get_gene_list()
 
-	genes_xml = ET.Element('genes')
-
-	for gene in genes:
-
-		gene_tag = ET.SubElement(genes_xml, 'gene')
-		gene_tag.text = gene
-
-	return(ET.tostring(genes_xml).decode("utf-8"))
+	return(genes)
 
 def count_codons(sequence):
 

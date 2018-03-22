@@ -4,11 +4,7 @@
 
 import business_rules as b
 
-gene_list_XML = b.get_gene_list()
-
-from xml.dom import minidom
-
-doc = minidom.parseString(gene_list_XML)
+genes = b.get_gene_list()
 	
 html = "<html>\n"
 
@@ -20,9 +16,9 @@ html += "<body>\n"
 
 html += "<ul>\n"
 
-for gene in doc.getElementsByTagName('gene'):
+for gene in genes:
 
-	html += "<li>" + gene.firstChild.data + "</li>"
+	html += "<li>" + gene + "</li>"
 
 html += "</ul>\n"
 
