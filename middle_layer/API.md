@@ -25,14 +25,14 @@ Python functions contained in a wrapper module called e.g. "wrapper.py":
    - The function should returns a list of dictionaries. Each dict contains the gene, protein product, accession, location, CDS coordinates (ideally as a list of lists, see below), the full DNA seq and the translated amino acid seq
    - Follow the below dictionary structure:
 
-   ```example_dict = {
+   example_dict = {
 		"gene": "VPS4B",
 		"prot": "vacuolar protein sorting factor 4B",
 		"acc": "AF282904",
 		"cds": [[2676, 2702], [13357, 13468], [14489, 14645]],
 		"dna": "ggatccaatccagaatcccat...",
 		"aa": "MSSTSPNLQKAIDLASKAAQEDKAGN..."
-	}```
+	}
 
 What the frontend should use from the middle layer
 =========
@@ -65,19 +65,17 @@ Provide a gene, protein, accession or chromosome location (i.e. the thing that i
 
 The function will return a list of dictionaries, with each dictionary corresponding to a relevant entry from the database. The dictionary will have the following structure:
 
-```example_dict = {
-		"gene": "VPS4B",
-		"prot": "vacuolar protein sorting factor 4B",
-		"acc": "AF282904",
-		"cds": [[2676, 2702], [13357, 13468], [14489, 14645]],
-		"dna": "ggatccaatccagaatcccat...",
-		"aa": "MSSTSPNLQKAIDLASKAAQEDKAGN...",
-		"restriction_sites": {'BamHI': [[939, 944], [1000, 1005]]},
-		"cds_seq": "atgtcatccacttcgcccaacctc...",
-		'codon_count': {'aaa': 26, 'aac': 8, 'aag': 16, 'aat': 9}
-	}
-
-	}```
+example_dict = {
+	"gene": "VPS4B",
+	"prot": "vacuolar protein sorting factor 4B",
+	"acc": "AF282904",
+	"cds": [[2676, 2702], [13357, 13468], [14489, 14645]],
+	"dna": "ggatccaatccagaatcccat...",
+	"aa": "MSSTSPNLQKAIDLASKAAQEDKAGN...",
+	"restriction_sites": {'BamHI': [[939, 944], [1000, 1005]]},
+	"cds_seq": "atgtcatccacttcgcccaacctc...",
+	'codon_count': {'aaa': 26, 'aac': 8, 'aag': 16, 'aat': 9}
+}
 
 - The dictionary under the key "restriction_sites" can have values for one or more of 'EcoRI', 'BamHI' and 'BsuMI' and the each sub-list in the list gives the start and end of a restriction site
 - "codon_count" should have a value for every codon that appears in the coding sequence
