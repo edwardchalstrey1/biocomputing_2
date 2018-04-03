@@ -21,6 +21,7 @@ def get_entries(gene=None, prot=None, acc=None, loc=None):
 		"cds": cds_coordinates_VPS4B,
 		"dna": origin_seq_VPS4B,
 		"aa": protein_translation_VPS4B
+		"loc": map_VPS4B
 	}
 
 	entries = []
