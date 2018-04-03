@@ -6,5 +6,9 @@ import business_rules as b
 import pprint as pp
 
 genes = b.get_gene_list()
-	
+
 pp.pprint(b.get_entries(gene="VPS4B"))
+
+# print(b.find_restriction_sites('EcoRI', 'XXXGAATTCXXXCTTAAG'))
+
+# print(b.which_enzymes_cut('GGATCCXXXGAATTC'))

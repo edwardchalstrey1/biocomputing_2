@@ -23,6 +23,11 @@ def get_entries(gene=None, prot=None, acc=None, loc=None):
 		"aa": protein_translation_VPS4B
 	}
 
+	restriction_sites = {}
+	restriction_sites['EcoRI'] = [[1, 5], [8, 10]]
+	restriction_sites['BamHI'] = [[13, 16]]
+	VPS4B_dict["restriction_sites"] = restriction_sites
+
 	entries = []
 
 	entries.append(VPS4B_dict)

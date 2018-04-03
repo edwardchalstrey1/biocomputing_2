@@ -61,3 +61,7 @@ CHECK REST LECTURE
   - Genbank accession (as given by ACCESSION)
   - chromosomal location (e.g. 8q24.3, as given by source /map="XXXX")
 
+
+### Follow up notes
+
+Should get_entries() for a given gene id (or other search) only ever have one genbank entry in the result? i.e. the returned list only has one dictionary?
