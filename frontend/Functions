@@ -1,0 +1,12 @@
+#######################################################
+### Functions needed to display data on the webpage ###
+#######################################################
+
+ """ This function will iterate through the dictionary created by 
+   Ed's function get_entries(gene=None, prot=None, acc=None, loc=None) and extract information about 
+   DNA,Amino Acid Sequence and protein"""
+   
+def get_gene_info(gid,prot,acc,loc):
+	
+  """ code """
+    return(k,dn,am)
