@@ -1,7 +1,7 @@
 Tasks:
 1)	Create a front web page which will display 4 drop down lists.
 a)	If one criterion is selected then others should disable.
-i)	Action : Not done
+i)	Action : done.
 2)	After the criterion is selected then the page should display detailed information.
 a)	Name of the Gene
 i)	Done :  
@@ -11,12 +11,12 @@ i)	Done :
 ii)	Further Action:Needs formatting
 c)	DNA sequence
 i)	Done : 
-ii)	Further Action:Needs formatting
+ii)	Further Action: Codon and restriction enzyne sites are highlighted
 d)	Amino Acid Sequence
 i)	Done: 
 ii)	Further Action:Needs formatting
-e)	Restriction Enzyme sites
+e)	Restriction Enzyme sites: done
 f)	Codon Usage frequency.
-i)	Frequency
-ii)	Over and underused codons
+i)	Frequency : done
+ii)	Over and underused codons: not done
 
