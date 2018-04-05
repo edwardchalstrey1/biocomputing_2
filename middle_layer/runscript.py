@@ -7,8 +7,5 @@ import pprint as pp
 
 genes = b.get_gene_list()
 
-pp.pprint(b.get_entries(gene="VPS4B"))
+pp.pprint(b.get_entries(gene="VPS4B")[0]["restriction_sites"]["BamHI"])
 
-# print(b.find_restriction_sites('EcoRI', 'XXXGAATTCXXXCTTAAG'))
-
-# print(b.which_enzymes_cut('GGATCCXXXGAATTC'))

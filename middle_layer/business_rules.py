@@ -323,7 +323,7 @@ def get_entries(gene=None, prot=None, acc=None, loc=None):
 
 		for enzyme in enzymes:
 
-			restriction_sites[enzyme] = find_restriction_sites(enzyme, entry["cds_seq"])
+			restriction_sites[enzyme] = find_restriction_sites(enzyme, entry["dna"]) # we need the restriction sites for the whole sequence, not just the coding part
 
 		entry["restriction_sites"] = restriction_sites
 
