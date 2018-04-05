@@ -317,7 +317,7 @@ def get_entries(gene=None, prot=None, acc=None, loc=None):
 
 		entry["codon_count"] = count_codons(entry["cds_seq"])
 
-		enzymes = which_enzymes_cut(entry["cds_seq"])
+		enzymes = which_enzymes_cut(entry["dna"])
 
 		restriction_sites = {}
 

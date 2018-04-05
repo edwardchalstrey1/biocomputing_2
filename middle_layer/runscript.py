@@ -7,5 +7,5 @@ import pprint as pp
 
 genes = b.get_gene_list()
 
-pp.pprint(b.get_entries(gene="VPS4B")[0]["restriction_sites"]["BamHI"])
+pp.pprint(b.get_entries(gene="VPS4B")[0]["restriction_sites"])
 
