@@ -1,3 +1,5 @@
+*This API document is for the use of the frontend/database developers*
+
 What the middle layer requires from the back end
 =============
 
@@ -22,7 +24,7 @@ Python functions contained in a wrapper module called e.g. "wrapper.py":
 ```get_entries(gene=None, prot=None, acc=None, loc=None)``` (see my example in [dummy_data.py](https://github.com/edwardchalstrey1/biocomputing_2/blob/master/middle_layer/dummy_data.py))
 
    - I should be able to provide a string of the gene, protein name, genbank accession or chromosomal location. You will then pull all the matching entries from the database (i.e. each entry in the Genbank file is an entry)
-   - The function should returns a list of dictionaries. Each dict contains the gene, protein product, accession, location, CDS coordinates (ideally as a list of lists, see below), the full DNA seq and the translated amino acid seq
+   - The function should returns a list of dictionaries. Each dict contains the gene, protein product, accession, CDS coordinates (ideally as a list of lists, see below), the full DNA seq, the translated amino acid seq and the location
    - Follow the below dictionary structure:
 
    example_dict = {
@@ -31,7 +33,8 @@ Python functions contained in a wrapper module called e.g. "wrapper.py":
 		"acc": "AF282904",
 		"cds": [[2676, 2702], [13357, 13468], [14489, 14645]],
 		"dna": "ggatccaatccagaatcccat...",
-		"aa": "MSSTSPNLQKAIDLASKAAQEDKAGN..."
+		"aa": "MSSTSPNLQKAIDLASKAAQEDKAGN...",
+		"loc": "18q21-q22"
 	}
 
 What the frontend should use from the middle layer
