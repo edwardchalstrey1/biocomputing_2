@@ -1,5 +1,6 @@
+#!/usr/bin/env python3
 
-""" Business logic"""
+""" Middle layer: Business logic, all code by Ed Chalstrey """
 
 import dummy_data as dd
 
