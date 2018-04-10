@@ -6,10 +6,8 @@
 
 """ All code by Ed Chalstrey """
 
-import business_rules as b
+import for_database as fd
 import pprint as pp
 
-genes = b.get_gene_list()
-
-pp.pprint(b.get_entries(gene="VPS4B")[0]["restriction_sites"])
+pp.pprint(fd.count_codons_all_coding_regions())
 

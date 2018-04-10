@@ -2,7 +2,7 @@
 
 """ Dummy data for use by middle layer whilst database layer unavailable - all code by Ed Chalstrey """
 
-def get_entries(gene=None, prot=None, acc=None, loc=None):
+def get_entries(gene=None, prot=None, acc=None, loc=None, all=False):
 
 	""" Should return a list of dictionaries. Each dict contains the gene, protein product, accession, location, CDS, DNA seq and AA seq """
 
