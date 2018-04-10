@@ -21,7 +21,7 @@ Python functions contained in a wrapper module called e.g. "wrapper.py":
 
    - Returns the list of chromosomal locations stored in the database
 
-```get_entries(gene=None, prot=None, acc=None, loc=None)``` (see my example in [dummy_data.py](https://github.com/edwardchalstrey1/biocomputing_2/blob/master/middle_layer/dummy_data.py))
+```get_entries(gene=None, prot=None, acc=None, loc=None, all=False)``` (see my example in [dummy_data.py](https://github.com/edwardchalstrey1/biocomputing_2/blob/master/middle_layer/dummy_data.py))
 
    - I should be able to provide a string of the gene, protein name, genbank accession or chromosomal location. You will then pull all the matching entries from the database (i.e. each entry in the Genbank file is an entry)
    - The function should returns a list of dictionaries. Each dict contains the gene, protein product, accession, CDS coordinates (ideally as a list of lists, see below), the full DNA seq, the translated amino acid seq and the location
@@ -36,6 +36,20 @@ Python functions contained in a wrapper module called e.g. "wrapper.py":
 		"aa": "MSSTSPNLQKAIDLASKAAQEDKAGN...",
 		"loc": "18q21-q22"
 	}
+
+	- If ```all``` is set to True, then this should pull all the entries from the database, which is required for the below:
+
+What the back end can use from the middle layer
+=============
+
+I have made a function called ```count_codons_all_coding_regions()``` in [for_database.py](https://github.com/edwardchalstrey1/biocomputing_2/blob/master/middle_layer/for_database.py) which outputs a dictionary of codons, with the values being the aggregate counts of these codons for the coding regions of all the sequences in the database. You can use this to populate the database.
+
+Another function the middle layer then requires from the back end
+==========
+
+```get_codon_usage_frequencies(codon_list)```
+
+   - This should return a dictionary of the codons in codon_list codons and their aggregate counts for all of the database sequence's coding regions
 
 What the frontend should use from the middle layer
 =========
@@ -82,3 +96,7 @@ example_dict = {
 
 - The dictionary under the key "restriction_sites" can have values for one or more of 'EcoRI', 'BamHI' and 'BsuMI' and the each sub-list in the list gives the start and end of a restriction site
 - "codon_count" should have a value for every codon that appears in the coding sequence
+
+```b.get_codon_usage_frequencies(codon_list)```
+
+   - This should return a dictionary of the codons in codon_list codons and their aggregate counts for all of the database sequence's coding regions

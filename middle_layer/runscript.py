@@ -8,6 +8,8 @@
 
 import for_database as fd
 import pprint as pp
+import business_rules as bp
 
-pp.pprint(fd.count_codons_all_coding_regions())
+# pp.pprint(fd.count_codons_all_coding_regions())
+pp.pprint(bp.get_codon_usage_frequencies(['ATG', 'CCC', 'AAA']))
 

@@ -33,6 +33,8 @@ CHECK REST LECTURE
 
 7. Calculating codon usage across all coding regions (perhaps use the subroutine developed for counting codon usage in a single gene) - store this somewhere; perhaps back in the database or in a text file.
 
+   - DONE
+
 8. Extracting information from the database layer (e.g. the complete gene list or individual gene information) (Some of these may simply be wrappers to database layer code)
 
    - DONE

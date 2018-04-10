@@ -54,3 +54,15 @@ def get_genbank_accession_list():
 def get_chromosomal_location_list():
 
 	return(['18p11.2', '18q21.1', '18q21.2-q22'])
+
+def get_codon_usage_frequencies(codon_list):
+
+	import random
+
+	codon_dict = {}
+
+	for codon in codon_list:
+
+		codon_dict[codon] = random.randrange(0,1000)
+
+	return(codon_dict)
