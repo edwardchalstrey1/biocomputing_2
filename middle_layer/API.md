@@ -92,10 +92,10 @@ example_dict = {
 	"prot": "vacuolar protein sorting factor 4B",
 	"acc": "AF282904",
 	"cds": [[2676, 2702], [13357, 13468], [14489, 14645]],
-	"dna": "ggatccaatccagaatcccat...",
+	"dna": "ATCG...",
 	"aa": "MSSTSPNLQKAIDLASKAAQEDKAGN...",
 	"restriction_sites": {'BamHI': [[939, 944], [1000, 1005]]},
-	"cds_seq": "atgtcatccacttcgcccaacctc...",
+	"cds_seq": "ATCG...",
 	'codon_count': {'aaa': 26, 'aac': 8, 'aag': 16, 'aat': 9},
 	'table_data': {'GGT': {'aa': 'G', 'freq': 2.02, 'ratio': 0.3}, ...}
 }
@@ -105,6 +105,7 @@ example_dict = {
 - The dictionary under the key "restriction_sites" can have values for one or more of 'EcoRI', 'BamHI' and 'BsuMI' and the each sub-list in the list gives the start and end of a restriction site
 - "codon_count" should have a value for every codon that appears in the coding sequence
 - "table_data" has a key for every possible triplet codon. Use this to make a table like [Andrew's example](http://www.bioinf.org.uk/teaching/bbk/biocomp2/project/codon-usage.gif)
+- DNA sequences are capitalised, unlike in the Genbank file
 
 ```b.get_codon_usage_frequencies(codon_list)```
 
