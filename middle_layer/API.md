@@ -107,6 +107,6 @@ example_dict = {
 - "table_data" has a key for every possible triplet codon. Use this to make a table like [Andrew's example](http://www.bioinf.org.uk/teaching/bbk/biocomp2/project/codon-usage.gif)
 - DNA sequences are capitalised, unlike in the Genbank file
 
-```b.get_codon_usage_frequencies(codon_list)```
+```b.get_table_data_entire_chromosome()```
 
-   - This should return a dictionary of the codons in codon_list codons and their aggregate counts for all of the database sequence's coding regions
+   - This should return table data in the same format as the sub-dictionary above, but for all the sequences in the chromosome put together

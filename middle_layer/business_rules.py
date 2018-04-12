@@ -136,14 +136,20 @@ def get_chromosomal_location_list():
 
 	return(locations)
 
-def get_codon_usage_frequencies(codon_list):
+# def get_codon_usage_frequencies(codon_list):
 
-	""" Returns a dictionary of the codons in codon_list and their aggregate counts for all of the database sequence's coding regions
-	by calling a function from the database wrapper script """
+# 	""" Returns a dictionary of the codons in codon_list and their aggregate counts for all of the database sequence's coding regions
+# 	by calling a function from the database wrapper script """
 
-	codon_dict = dd.get_codon_usage_frequencies(codon_list)
+# 	codon_dict = dd.get_codon_usage_frequencies(codon_list)
 
-	return(codon_dict)
+# 	return(codon_dict)
+
+def get_table_data_entire_chromosome():
+
+	table_data = dd.get_table_data_entire_chromosome()
+
+	return(table_data)
 
 ############################################################
 ### Functions to be used to generate info for front end: ###

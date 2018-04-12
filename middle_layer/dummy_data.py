@@ -55,9 +55,114 @@ def get_chromosomal_location_list():
 
 	return(['18p11.2', '18q21.1', '18q21.2-q22'])
 
-def get_codon_usage_frequencies(codon_list):
+# def get_codon_usage_frequencies(codon_list):
+
+# 	import random
+
+# 	codon_dict = {}
+
+# 	for codon in codon_list:
+
+# 		codon_dict[codon] = random.randrange(0,1000)
+
+# 	return(codon_dict)
+
+dna_codon_to_amino_acid_dict = {
+
+	'TTT': 'F',
+	'TTC': 'F',
+
+	'TTA': 'L',
+	'TTG': 'L',
+	'CTT': 'L',
+	'CTC': 'L',
+	'CTA': 'L',
+	'CTG': 'L',
+
+	'ATT': 'I',
+	'ATC': 'I',
+	'ATA': 'I',
+
+	'ATG': 'M',
+
+	'GTT': 'V',
+	'GTC': 'V',
+	'GTA': 'V',
+	'GTG': 'V',
+
+	'TCT': 'S',
+	'TCC': 'S',
+	'TCA': 'S',
+	'TCG': 'S',
+
+	'CCT': 'P',
+	'CCC': 'P',
+	'CCA': 'P',
+	'CCG': 'P',
+
+	'ACT': 'T',
+	'ACC': 'T',
+	'ACA': 'T',
+	'ACG': 'T',
+
+	'GCT': 'A',
+	'GCC': 'A',
+	'GCA': 'A',
+	'GCG': 'A',
+
+	'TAT': 'Y',
+	'TAC': 'Y',
+
+	'TAA': 'Stop',
+	'TAG': 'Stop',
+	'TGA': 'Stop',
+
+	'CAT': 'H',
+	'CAC': 'H',
+
+	'CAA': 'Q',
+	'CAG': 'Q',
+
+	'AAT': 'N',
+	'AAC': 'N',
+
+	'AAA': 'K',
+	'AAG': 'K',
+
+	'GAT': 'D',
+	'GAC': 'D',
+
+	'GAA': 'E',
+	'GAG': 'E',
+
+	'TGT': 'C',
+	'TGC': 'C',
+
+	'TGG': 'W',
+
+	'CGT': 'R',
+	'CGC': 'R',
+	'CGA': 'R',
+	'CGG': 'R',
+	'AGA': 'R',
+	'AGG': 'R',
+
+	'AGT': 'S',
+	'AGC': 'S',
+
+	'GGT': 'G',
+	'GGC': 'G',
+	'GGA': 'G',
+	'GGG': 'G'
+
+}
+
+def get_table_data_entire_chromosome():
 
 	import random
+	import business_rules as br
+
+	codon_list = dna_codon_to_amino_acid_dict.keys()
 
 	codon_dict = {}
 
@@ -65,4 +170,6 @@ def get_codon_usage_frequencies(codon_list):
 
 		codon_dict[codon] = random.randrange(0,1000)
 
-	return(codon_dict)
+	dummy_table_data = br.get_table_data(codon_dict)
+
+	return(dummy_table_data)
