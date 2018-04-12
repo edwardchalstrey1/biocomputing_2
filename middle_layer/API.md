@@ -27,17 +27,21 @@ Python functions contained in a wrapper module called e.g. "wrapper.py":
    - The function should returns a list of dictionaries. Each dict contains the gene, protein product, accession, CDS coordinates (ideally as a list of lists, see below), the full DNA seq, the translated amino acid seq and the location
    - Follow the below dictionary structure:
 
-   example_dict = {
-		"gene": "VPS4B",
-		"prot": "vacuolar protein sorting factor 4B",
-		"acc": "AF282904",
-		"cds": [[2676, 2702], [13357, 13468], [14489, 14645]],
-		"dna": "ggatccaatccagaatcccat...",
-		"aa": "MSSTSPNLQKAIDLASKAAQEDKAGN...",
-		"loc": "18q21-q22"
-	}
+```
 
-	- If ```all``` is set to True, then this should pull all the entries from the database, which is required for the below:
+example_dict = {
+	"gene": "VPS4B",
+	"prot": "vacuolar protein sorting factor 4B",
+	"acc": "AF282904",
+	"cds": [[2676, 2702], [13357, 13468], [14489, 14645]],
+	"dna": "ggatccaatccagaatcccat...",
+	"aa": "MSSTSPNLQKAIDLASKAAQEDKAGN...",
+	"loc": "18q21-q22"
+}
+
+```
+
+If **all** is set to True, then this should pull all the entries from the database, which is required for the below:
 
 What the back end can use from the middle layer
 =============
@@ -82,6 +86,7 @@ Provide a gene, protein, accession or chromosome location (i.e. the thing that i
 
 The function will return a list of dictionaries, with each dictionary corresponding to a relevant entry from the database. The dictionary will have the following structure:
 
+```
 example_dict = {
 	"gene": "VPS4B",
 	"prot": "vacuolar protein sorting factor 4B",
@@ -94,6 +99,8 @@ example_dict = {
 	'codon_count': {'aaa': 26, 'aac': 8, 'aag': 16, 'aat': 9},
 	'table_data': {'GGT': {'aa': 'G', 'freq': 2.02, 'ratio': 0.3}, ...}
 }
+
+```
 
 - The dictionary under the key "restriction_sites" can have values for one or more of 'EcoRI', 'BamHI' and 'BsuMI' and the each sub-list in the list gives the start and end of a restriction site
 - "codon_count" should have a value for every codon that appears in the coding sequence
