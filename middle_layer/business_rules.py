@@ -10,9 +10,99 @@ import dummy_data as dd
 
 restriction_enzymes = ['EcoRI', 'BamHI', 'BsuMI']
 
-#######################
-### List functions: ###
-#######################
+dna_codon_to_amino_acid_dict = {
+
+	'TTT': 'F',
+	'TTC': 'F',
+
+	'TTA': 'L',
+	'TTG': 'L',
+	'CTT': 'L',
+	'CTC': 'L',
+	'CTA': 'L',
+	'CTG': 'L',
+
+	'ATT': 'I',
+	'ATC': 'I',
+	'ATA': 'I',
+
+	'ATG': 'M',
+
+	'GTT': 'V',
+	'GTC': 'V',
+	'GTA': 'V',
+	'GTG': 'V',
+
+	'TCT': 'S',
+	'TCC': 'S',
+	'TCA': 'S',
+	'TCG': 'S',
+
+	'CCT': 'P',
+	'CCC': 'P',
+	'CCA': 'P',
+	'CCG': 'P',
+
+	'ACT': 'T',
+	'ACC': 'T',
+	'ACA': 'T',
+	'ACG': 'T',
+
+	'GCT': 'A',
+	'GCC': 'A',
+	'GCA': 'A',
+	'GCG': 'A',
+
+	'TAT': 'Y',
+	'TAC': 'Y',
+
+	'TAA': 'Stop',
+	'TAG': 'Stop',
+	'TGA': 'Stop',
+
+	'CAT': 'H',
+	'CAC': 'H',
+
+	'CAA': 'Q',
+	'CAG': 'Q',
+
+	'AAT': 'N',
+	'AAC': 'N',
+
+	'AAA': 'K',
+	'AAG': 'K',
+
+	'GAT': 'D',
+	'GAC': 'D',
+
+	'GAA': 'E',
+	'GAG': 'E',
+
+	'TGT': 'C',
+	'TGC': 'C',
+
+	'TGG': 'W',
+
+	'CGT': 'R',
+	'CGC': 'R',
+	'CGA': 'R',
+	'CGG': 'R',
+	'AGA': 'R',
+	'AGG': 'R',
+
+	'AGT': 'S',
+	'AGC': 'S',
+
+	'GGT': 'G',
+	'GGC': 'G',
+	'GGA': 'G',
+	'GGG': 'G'
+
+}
+
+############################################################
+### Functions that pull data straight from the database: ###
+############################################################
 
 def get_gene_list():
 
@@ -87,95 +177,7 @@ def dna_codon_to_amino_acid(codon):
 
 	codon = codon.upper() # capitalization neccesary for return dictionary to work
 
-	return {
-
-		'TTT': 'F',
-		'TTC': 'F',
-
-		'TTA': 'L',
-		'TTG': 'L',
-		'CTT': 'L',
-		'CTC': 'L',
-		'CTA': 'L',
-		'CTG': 'L',
-
-		'ATT': 'I',
-		'ATC': 'I',
-		'ATA': 'I',
-
-		'ATG': 'M',
-
-		'GTT': 'V',
-		'GTC': 'V',
-		'GTA': 'V',
-		'GTG': 'V',
-
-		'TCT': 'S',
-		'TCC': 'S',
-		'TCA': 'S',
-		'TCG': 'S',
-
-		'CCT': 'P',
-		'CCC': 'P',
-		'CCA': 'P',
-		'CCG': 'P',
-
-		'ACT': 'T',
-		'ACC': 'T',
-		'ACA': 'T',
-		'ACG': 'T',
-
-		'GCT': 'A',
-		'GCC': 'A',
-		'GCA': 'A',
-		'GCG': 'A',
-
-		'TAT': 'Y',
-		'TAC': 'Y',
-
-		'TAA': 'Stop',
-		'TAG': 'Stop',
-		'TGA': 'Stop',
-
-		'CAT': 'H',
-		'CAC': 'H',
-
-		'CAA': 'Q',
-		'CAG': 'Q',
-
-		'AAT': 'N',
-		'AAC': 'N',
-
-		'AAA': 'K',
-		'AAG': 'K',
-
-		'GAT': 'D',
-		'GAC': 'D',
-
-		'GAA': 'E',
-		'GAG': 'E',
-
-		'TGT': 'C',
-		'TGC': 'C',
-
-		'TGG': 'W',
-
-		'CGT': 'R',
-		'CGC': 'R',
-		'CGA': 'R',
-		'CGG': 'R',
-		'AGA': 'R',
-		'AGG': 'R',
-
-		'AGT': 'S',
-		'AGC': 'S',
-
-		'GGT': 'G',
-		'GGC': 'G',
-		'GGA': 'G',
-		'GGG': 'G'
-
-	}.get(codon, 'X')
+	return dna_codon_to_amino_acid_dict.get(codon, 'X')
 
 def are_sequences_aligned(dna_seq, amino_acid_seq):
 
@@ -306,6 +308,64 @@ def which_enzymes_cut(sequence):
 
 	return(enzymes_for_this_sequence)
 
+def get_table_data(codon_dict):
+
+	table_list = []
+
+	for codon, amino_acid in dna_codon_to_amino_acid_dict.items():
+
+		default_codon_data = {}
+
+		default_codon_data["codon"] = codon
+
+		default_codon_data["aa"] = amino_acid
+
+		default_codon_data["freq"] = 0
+
+		default_codon_data["ratio"] = 0
+
+		table_list.append(default_codon_data)
+
+	total_codon_count = sum(codon_dict.values())
+
+	for codon_from_entry, count in codon_dict.items():
+
+		codon_from_entry = codon_from_entry.upper()
+
+		freq = count / total_codon_count * 100.0
+
+		codons_with_same_aa = []
+
+		for codon, amino_acid in dna_codon_to_amino_acid_dict.items():
+
+			if dna_codon_to_amino_acid_dict[codon_from_entry] == amino_acid:
+
+				codons_with_same_aa.append(codon)
+
+		total_codon_count_with_this_aa = 0
+
+		for codon in codons_with_same_aa:
+
+			if codon in codon_dict:
+
+				total_codon_count_with_this_aa += codon_dict[codon]
+
+		ratio = count / total_codon_count_with_this_aa
+
+		counter = 0
+
+		for table_item in table_list:
+
+			if table_item["codon"] == codon_from_entry:
+
+				table_list[counter]["freq"] = freq
+
+				table_list[counter]["ratio"] = ratio
+
+			counter += 1
+
+	return(table_list) 
+
 ###############################
 ### Main business function: ###
 ###############################
@@ -319,6 +379,10 @@ def get_entries(gene=None, prot=None, acc=None, loc=None):
 	entries = []
 
 	for entry in database_entries:
+
+		entry["dna"] = entry["dna"].upper() # Capitalise sequence so it works with my global dictionary: dna_codon_to_amino_acid_dict
+
+		entry["aa"] = entry["aa"].upper()
 
 		entry["cds_seq"] = get_coding_seq(entry["dna"], entry["cds"])
 
