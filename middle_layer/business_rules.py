@@ -310,21 +310,49 @@ def which_enzymes_cut(sequence):
 
 def get_table_data(codon_dict):
 
-	table_list = []
+	""" Get data to populate a codon usage table. Use as input a pre-calculated dictionary of the codons for a given genbank entry - each codon
+		used at least once in the coding sequence is a key and the value is the number of that codon present in the sequence.
+		The output is a dictionary of dictionaries, one for each possible codon of the genetic code. Each sub-dictionary contains the amino acid
+		of the codon, the frequency the codon is used per 100 codons (in the coding region of the gene) and the ratio of that codon relative
+		to all other codons with the same amino acid. 
+
+	>>> codon_dict = {"AAA":1, "AAG":3, "TTA":1, "CGT":1, "AGT":4}
+
+	>>> table_data = get_table_data(codon_dict)
+
+	>>> table_data['AAA']
+	{'aa': 'K', 'freq': 10.0, 'ratio': 0.25}
+
+	>>> table_data['AAG']
+	{'aa': 'K', 'freq': 30.0, 'ratio': 0.75}
+
+	>>> table_data['TTA']
+	{'aa': 'L', 'freq': 10.0, 'ratio': 1.0}
+
+	>>> table_data['CGT']
+	{'aa': 'R', 'freq': 10.0, 'ratio': 1.0}
+
+	>>> table_data['AGT']
+	{'aa': 'S', 'freq': 40.0, 'ratio': 1.0}
+
+	>>> table_data['TTT']
+	{'aa': 'F', 'freq': 0.0, 'ratio': 0.0}
+
+	"""
+
+	table_dict = {}
 
 	for codon, amino_acid in dna_codon_to_amino_acid_dict.items():
 
 		default_codon_data = {}
 
-		default_codon_data["codon"] = codon
-
 		default_codon_data["aa"] = amino_acid
 
-		default_codon_data["freq"] = 0
+		default_codon_data["freq"] = 0.0
 
-		default_codon_data["ratio"] = 0
+		default_codon_data["ratio"] = 0.0
 
-		table_list.append(default_codon_data)
+		table_dict[codon] = default_codon_data
 
 	total_codon_count = sum(codon_dict.values())
 
@@ -342,7 +370,7 @@ def get_table_data(codon_dict):
 
 				codons_with_same_aa.append(codon)
 
-		total_codon_count_with_this_aa = 0
+		total_codon_count_with_this_aa = 0.0
 
 		for codon in codons_with_same_aa:
 
@@ -352,19 +380,11 @@ def get_table_data(codon_dict):
 
 		ratio = count / total_codon_count_with_this_aa
 
-		counter = 0
+		table_dict[codon_from_entry]["freq"] = freq
 
-		for table_item in table_list:
+		table_dict[codon_from_entry]["ratio"] = ratio
 
-			if table_item["codon"] == codon_from_entry:
-
-				table_list[counter]["freq"] = freq
-
-				table_list[counter]["ratio"] = ratio
-
-			counter += 1
-
-	return(table_list) 
+	return(table_dict)
 
 ###############################
 ### Main business function: ###
