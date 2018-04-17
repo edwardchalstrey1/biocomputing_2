@@ -2,7 +2,7 @@
 
 """ Middle layer: function(s) for use by the database layer. All code by Ed Chalstrey """
 
-import dummy_data as dd
+import dummy_data as dd # for use until the database layer functions become available
 import business_rules as br
 
 def store_table_data_entire_chromosome():
