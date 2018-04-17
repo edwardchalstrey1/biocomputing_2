@@ -5,17 +5,18 @@
 import dummy_data as dd
 import business_rules as br
 
-def count_codons_all_coding_regions():
+def store_table_data_entire_chromosome():
 
-	""" Gets a dictionary with keys as codons and values as the aggregate counts of the codons for coding regions of all the sequences in the database"""
+	""" Gets the data required for the codon table of the entire chromosome, for storage in the database.
+		The output is a dictionary of dictionaries, one for each possible codon of the genetic code. Each sub-dictionary contains the amino acid
+		of the codon, the frequency the codon is used per 100 codons and the ratio of that codon relative
+		to all other codons with the same amino acid."""
 
 	codon_dict = {}
 
 	for entry in dd.get_entries(all=True):
 
-		coding_seq = br.get_coding_seq(entry["dna"], entry["cds"])
-
-		entry_codon_dict = br.count_codons(coding_seq)
+		entry_codon_dict = br.count_codons(entry["dna"].upper())
 
 		for codon, count in entry_codon_dict.items():
 
@@ -27,4 +28,6 @@ def count_codons_all_coding_regions():
 
 				codon_dict[codon] += count
 
-	return(codon_dict)
+	table_data = br.get_table_data(codon_dict)
+
+	return(table_data)

@@ -43,17 +43,25 @@ example_dict = {
 
 If **all** is set to True, then this should pull all the entries from the database, which is required for the below:
 
-What the back end can use from the middle layer
-=============
+What the back end should use from the middle layer
+-----
 
-I have made a function called ```count_codons_all_coding_regions()``` in [for_database.py](https://github.com/edwardchalstrey1/biocomputing_2/blob/master/middle_layer/for_database.py) which outputs a dictionary of codons, with the values being the aggregate counts of these codons for the coding regions of all the sequences in the database. You can use this to populate the database.
+I have made a function called ```store_table_data_entire_chromosome()``` in [for_database.py](https://github.com/edwardchalstrey1/biocomputing_2/blob/master/middle_layer/for_database.py) which outputs a dictionary of dictionaries, one for each possible codon of the genetic code. Each sub-dictionary contains the amino acid of the codon, the frequency the codon is used per 100 codons and the ratio of that codon relative to all other codons with the same amino acid.
 
-Another function the middle layer then requires from the back end
-==========
+To do this, the database layer function ```get_entries(all=True)``` is called.
 
-```get_codon_usage_frequencies(codon_list)```
+For example the dictionary looks like this (that has a key for every possible triplet codon ):
 
-   - This should return a dictionary of the codons in codon_list codons and their aggregate counts for all of the database sequence's coding regions
+```
+{'GGT': {'aa': 'G', 'freq': 2.02, 'ratio': 0.3}, ...}
+```
+
+Final function for the middle layer to use from the backend
+-----
+
+Once the data from ```store_table_data_entire_chromosome()``` is stored in the database, the middle layer then needs to be able to retrieve this data.
+
+The function ```get_table_data_entire_chromosome()``` should pull the data out in the same format as it went in.
 
 What the frontend should use from the middle layer
 =========
