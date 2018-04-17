@@ -179,7 +179,8 @@ def dna_codon_to_amino_acid(codon):
 def are_sequences_aligned(dna_seq, amino_acid_seq):
 
 	""" When the coding dna sequence is taken from an entry from a Genbank file,
-		the codons should already be aligned with the protein translation taken from that entry
+		the codons should already be aligned with the protein translation taken from that entry.
+		This function can be used to check if that is the case.
 
 	>>> are_sequences_aligned('TTTTTAGCTTGTAAGAGT', 'FLACKS')
 	True
@@ -203,6 +204,28 @@ def are_sequences_aligned(dna_seq, amino_acid_seq):
 		counter += 1
 
 	return(are_aligned)
+
+def generate_polypeptide(dna_seq):
+
+	""" In case any of the coding sequences do not align accurately to the amino acid sequence in the Genbank file entry,
+		this function can be used to generate the correctly aligned sequence, which we need for display purposes.
+
+	>>> print(generate_polypeptide('TTTTTAGCTTGTAAGAGT'))
+	FLACKS
+
+	"""
+
+	polypeptide = ""
+
+	import re
+
+	codons = re.findall('\w\w\w', dna_seq)
+
+	for codon in codons:
+
+		polypeptide += dna_codon_to_amino_acid(codon)
+
+	return(polypeptide)
 
 def count_codons(sequence):
 
@@ -404,6 +427,12 @@ def get_entries(gene=None, prot=None, acc=None, loc=None):
 		entry["cds_seq"] = get_coding_seq(entry["dna"], entry["cds"])
 
 		entry["are_aligned"] = are_sequences_aligned(entry["cds_seq"], entry["aa"])
+
+		if entry["are_aligned"] == False:
+
+			entry["aa"] = generate_polypeptide(entry["cds_seq"])
+
+			entry["are_aligned"] = True
 
 		entry["codon_count"] = count_codons(entry["cds_seq"])
 
