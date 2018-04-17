@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-""" Middle layer: function(s) for use by the database layer """
+""" Middle layer: function(s) for use by the database layer. All code by Ed Chalstrey """
 
 import dummy_data as dd
 import business_rules as br

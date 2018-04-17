@@ -2,7 +2,7 @@
 
 """ Middle layer: Business logic, all code by Ed Chalstrey """
 
-import dummy_data as dd
+import dummy_data as dd # for use until the database layer functions become available
 
 ########################
 ### Global vaiables: ###
