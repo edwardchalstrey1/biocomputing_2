@@ -63,3 +63,5 @@ This file can be imported as a module to a Python script and used within code be
 The single function is called ```store_table_data_entire_chromosome()```, which outputs a dictionary of dictionaries, one for each possible codon of the genetic code. Each sub-dictionary contains the amino acid of the codon, the frequency the codon is used per 100 codons and the ratio of that codon relative to all other codons with the same amino acid.
 
 To calculate this, the DNA sequence associated with each record is retrieved from the database layer, then the ```count_codons``` and ```get_table_data``` functions imported from business_rules.py are utilised, resulting in the same output as ```get_table_data```, but for the entire chromosome, instead of a single Genbank record.
+
+Once this data is stored in the database, it can be retrieved by the front end via the middle layer as described above with ```get_table_data_entire_chromosome```.
