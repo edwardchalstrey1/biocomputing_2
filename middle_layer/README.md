@@ -3,9 +3,7 @@ Notes
 
 ### Tasks:
 
-1. Modify ```get_codon_usage_frequencies()``` to store table data for the entire chromosome 
-
-2. Write a function that creates a new protein sequence from the coding sequence if the protein is not aligned
+1. Write a function that creates a new protein sequence from the coding sequence if the protein is not aligned
 
     - You may need to create a dummy database (just in python) by using regex on the chromosome file, that just contains the coordinates, dna and translated protein
 
