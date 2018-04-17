@@ -138,6 +138,10 @@ def get_chromosomal_location_list():
 
 def get_table_data_entire_chromosome():
 
+	""" Get data to populate a codon usage table. The output is a dictionary of dictionaries, one for each possible codon of the genetic code.
+		Each sub-dictionary contains the amino acid of the codon (key = 'aa'), the frequency the codon is used per 100 codons in the
+		entire chromosome (key = 'freq') and the ratio of that codon relative to all other codons with the same amino acid (key = 'ratio')."""
+
 	table_data = dd.get_table_data_entire_chromosome()
 
 	return(table_data)
@@ -333,8 +337,8 @@ def get_table_data(codon_dict):
 	""" Get data to populate a codon usage table. Use as input a pre-calculated dictionary of the codons for a given genbank entry - each codon
 		used at least once in the coding sequence is a key and the value is the number of that codon present in the sequence.
 		The output is a dictionary of dictionaries, one for each possible codon of the genetic code. Each sub-dictionary contains the amino acid
-		of the codon, the frequency the codon is used per 100 codons (in the coding region of the gene) and the ratio of that codon relative
-		to all other codons with the same amino acid. 
+		of the codon (key = 'aa'), the frequency the codon is used per 100 codons in the coding region of the gene (key = 'freq') and the ratio
+		of that codon relative to all other codons with the same amino acid (key = 'ratio'). 
 
 	>>> codon_dict = {"AAA":1, "AAG":3, "TTA":1, "CGT":1, "AGT":4}
 

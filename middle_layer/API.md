@@ -102,10 +102,10 @@ example_dict = {
 	"cds": [[2676, 2702], [13357, 13468], [14489, 14645]],
 	"dna": "ATCG...",
 	"aa": "MSSTSPNLQKAIDLASKAAQEDKAGN...",
-	"restriction_sites": {'BamHI': [[939, 944], [1000, 1005]]},
 	"cds_seq": "ATCG...",
-	'codon_count': {'aaa': 26, 'aac': 8, 'aag': 16, 'aat': 9},
-	'table_data': {'GGT': {'aa': 'G', 'freq': 2.02, 'ratio': 0.3}, ...}
+	"restriction_sites": {'BamHI': [[939, 944], [1000, 1005]]},
+	"codon_count": {'AAA': 26, 'AAC': 8, 'AAG': 16, 'AAT': 9},
+	"table_data": {'GGT': {'aa': 'G', 'freq': 2.02, 'ratio': 0.3}, ...}
 }
 
 ```
