@@ -61,9 +61,9 @@ html = "<html>\n"
 html += "<head>\n"
 
 html += "<title> Chromosome 18 </title>\n"
-html+="<link rel='stylesheet' href='http://localhost/BioCW2/WWW/CSS/bootstrap.min.css'></script>\n"
+html+="<link rel='stylesheet' href='http://localhost/BioCW/WWW/CSS/bootstrap.min.css'></script>\n"
 html+="<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>\n"
-html+="<script src='http://localhost/BioCW2/WWW/JS/bootstrap.min.js'></script>\n"
+html+="<script src='http://localhost/BioCW/WWW/JS/bootstrap.min.js'></script>\n"
 
 html += "<link rel='stylesheet'  href='http://localhost/BioCW/WWW/CSS/style.css' type='text/css' />\n"
 
