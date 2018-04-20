@@ -1,0 +1,42 @@
+Front End Documentation:
+
+Imp Notes and to do : 
+•	This documentation is still not finished.
+•	For python file the path might need to changed from #!usr/bin/env python to python3
+
+•	get_codon_usage_frequencies(codon_list) : uncommented
+•	Commnet index.html and functions.py
+•	Comment biocw.js and style.css
+•	
+
+The front end is developed to display the detailed information about the genes on the given chromosome -Chromosome 18 based on the user selection.
+
+Requirements:  A Local server environment - Apache
+Index.html: This page loads from the local server’s WWW folder. After loading it calls a function called loadindex() from the javascript file to load index.py
+
+
+Index.py:  This page has 4 dropdown lists for Gene Id, Location, Protein and Accession number. These dropdown lists get the values from the respective functions from the business logic functions file – business_rules.py get_gene_list()
+get_genbank_accesion_lis()
+get_protein_prodcut_list()
+get_chromosomal_location_list()
+
+The XML ElementTree API: These functions return the values in xml string format, which are then formatted and displayed in the dropdown list. 
+
+Once the lists are populated then the user can select either of 4 and submit the request. Once a value is selected from the dropdown list then other lists are disabled.
+
+Query.cgi:
+
+Using the method cgi.fieldstorage() , the values from the form are stored into variables. Based on the input, the function get_entries() is accessed. Get_entries returns a dictionary which has stored the information  for the respective entry. 
+
+The gene dictionary gives gene name, its protein product, coding region , amino acid for the coding region and restriction enzyme cut sites for the enzymes (EcoRI,BamHI and BsuMI)
+
+The user then can select if he/she wants to see the restriction enzyme cut sites. These cut sites are highlighted only if they cut outside the coding region, i.e before and/or after the coding region.(before the first coding region and after the last coding region) If these sites cut within the coding region then these are not highlighted and a corresponding message is displayed.
+
+Highlight coding region:
+To highlight the coding region, 2 functions are written in functions.py file.
+
+First function highlight_coding_seq(complete_dna,cds) : inserts the delimiters at the start and the end of coding regions. An offset is used to check that the positions are not changed whilst inserting the delimiters. After the delimiters are inserted then in the next function, these are replaced by <span class highlight> which is predefined in the css file. Once it is done then the new highlighted dna is displayed on the browser where the span element is rendered accordingly.
+
+Same principle is used to highlight the restriction enzyme cut sites.
+
+
