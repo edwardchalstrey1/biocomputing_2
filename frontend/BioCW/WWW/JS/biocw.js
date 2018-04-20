@@ -62,7 +62,7 @@ function toggleElement(element)
    }
 }
 
-/* After loading the index.html page , this function directs it to the index.cgi */   
+/* After loading the index.html page , this function directs it to the index.py */   
 function loadIndex() {
     document.location = "http://localhost/cgi-bin/index.py";
 }
