@@ -48,10 +48,10 @@ prot_list=br.get_protein_product_list()
 loc_list=br.get_chromosomal_location_list()
 
 #******** Read the values from  xml string form
-genes=ET.fromstring(gene_list)
-accession=ET.fromstring(acc_list)
-proteins=ET.fromstring(prot_list)
-locations=ET.fromstring(loc_list)
+#genes=ET.fromstring(gene_list)
+#accession=ET.fromstring(acc_list)
+#proteins=ET.fromstring(prot_list)
+#locations=ET.fromstring(loc_list)
 
 
 #****************** Main CGI Script to display data ***************
@@ -90,8 +90,8 @@ html+="<h4> Gene Name </h4>\n"
 html+="<select name='Gene' id='geneid' onClick=disable(id)>\n" 
 
    
-for gene in genes.iter(tag='gene'):
-   html+="<option id='opt-gene'>" +  gene.text + "</option>" 
+for gene in gene_list:
+   html+="<option id='opt-gene'>" +  gene + "</option>" 
 	
 html+="</select>\n"
 html+="</div>\n"
@@ -100,8 +100,8 @@ html+="<div class='col-sm-3' id='div-gene-info' class='dropdown'>\n"
 html+="<h4> Accession </h4>\n"
 html+="<select name='Accession' id='accid' onClick=disable(id)>\n" 
    
-for acc in accession.iter(tag='accession'):
-   html+="<option id= 'opt-acc'>" +  acc.text + "</option>" 
+for acc in acc_list:
+   html+="<option id= 'opt-acc'>" +  acc + "</option>" 
 	
 html+="</select>\n"
 html+="</div>\n"
@@ -110,8 +110,8 @@ html+="<div class='col-sm-3' id='div-gene-info' class='dropdown'>\n"
 html+="<h4> Protein id </h4>\n"
 html+="<select name='Protein' id='protid' onClick=disable(id)>\n" 
    
-for prot in proteins.iter(tag='protein'):
-   html+="<option id='opt-prot'>" +  prot.text + "</option>" 
+for prot in prot_list:
+   html+="<option id='opt-prot'>" +  prot + "</option>" 
 	
 html+="</select>\n"
 html+="</div>\n"
@@ -119,8 +119,10 @@ html+="<div class='col-sm-3' id='div-gene-info' class='dropdown'>\n"
 html+="<h4> Location </h4>\n"
 html+="<select name='Location' id='locid' onClick=disable(id)>\n" 
    
-for loc in locations.iter(tag='location'):
-   html+="<option id='opt-loc'>" +  loc.text + "</option>" 
+#for loc in locations.iter(tag='location'):
+for loc in loc_list:
+   #html+="<option id='opt-loc'>" +  loc.text + "</option>"
+   html+="<option id='opt-loc'>" +  loc + "</option>" 
 	
 html+="</select>\n"
 html+="</div>\n"
@@ -144,7 +146,7 @@ html+="</div>\n"
 html+="</div>\n"
 html+="</div>\n"
 html+="</form>"
-html+="<div class='footer'> Trupti Gore"
+html+="<div class='footer'> Group : 1 Chromosome: 18 </div>"
 html+="<script type='text/javascript' src='http://localhost/BioCW2/WWW/JS/lastmodified.js'></script>\n"
 html+="</div>"
 html += "<script type='text/javascript' src='http://localhost/BioCW2/WWW/JS/biocw2.js'></script>\n"
