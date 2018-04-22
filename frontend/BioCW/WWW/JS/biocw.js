@@ -76,7 +76,7 @@ function get_enzyme_name(value){
     
 }
 
-/* Accordion */
+/* Accordion : https://www.w3schools.com/howto/howto_js_accordion.asp*/
 
 var acc = document.getElementsByClassName("accordion");
 var i;
@@ -97,6 +97,20 @@ for (i = 0; i < acc.length; i++) {
     });
 }
 
+
+/*Hide email : */
+
+function printem(name, domainName, character)
+{
+   var emAddress = name + "@" + domainName;
+   
+   emAddress = emAddress.replace(RegExp(character, "g"), ".");
+   /* alert(emAddress); */
+   
+   document.write("<span class='em'>");
+   document.write("<a href='mailto:" + emAddress +"'>" + emAddress + "</a>");
+   document.writeln("</span>");
+}
 
 
     

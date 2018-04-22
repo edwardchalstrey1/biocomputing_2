@@ -35,6 +35,9 @@ padding:20px;
     white-space: normal;
 }*/
 
+.highlight-original{
+	background:color:white;
+}
 .highlight{
 background-color: yellow;
 
@@ -48,7 +51,7 @@ background-color: #f4426b;
 
 pre {
    font-family: "Lucida Console", monospace; !important
-   /*display:block;*/
+   display:block;
    padding:9.5px;
    margin:0 0 10px;
    font-size:100%;
@@ -80,17 +83,22 @@ footer{
 
 
 .child{
-	height:60px;
+	height:100px;
 }
 .scroll 
 {
 max-width:980px; 
 background-color:#ffFFFF;
 /*height:300px;*/
-overflow:auto;
+overflow-x:scroll;
+/*-webkit-overflow-x: auto;
+-webkit-overflow-scrolling: touch;*/
 white-space: nowrap;
 overflow-y:hidden;
+/*-webkit-overflow-y: hidden;*/
 padding:0px;
+/*overflow: scroll;
+-webkit-overflow-scrolling: touch;*/
 
 }
 h4{
@@ -153,7 +161,7 @@ input[type="reset"] {
   
   font-weight: bold;
 }
-.wrapper{
+/*.wrapper{
 	max-width:100%;
 	overflow:hidden;
 	padding:20px;
@@ -165,10 +173,10 @@ input[type="reset"] {
 }
 .left{
 	float:left;
-}
+}*
 
 
-/* Accordinan taken from https://www.w3schools.com/howto/howto_js_accordion.asp*/
+/* Accordinan Reference https://www.w3schools.com/howto/howto_js_accordion.asp*/
 .accordion {
     background-color: #eee;
     color: #444;
@@ -189,7 +197,7 @@ input[type="reset"] {
 }
 /* adding icons to the buttons*/
 .accordion:after {
-    content: "\25BC"; /* Unicode character for "plus" sign (+) */
+    content: "\25BC"; /* Unicode character for "down arrow" sign () */
     font-size: 13px;
     color: #777;
     float: right;
@@ -197,20 +205,22 @@ input[type="reset"] {
 }
 
 .active:after {
-    content: "\25B2"; /* Unicode character for "minus" sign (-) */
+    content: "\25B2"; /* Unicode character for "up" sign (-) */
 }
 
 .active, .accordion:hover {
     background-color: #ccc; 
 }
 
-/* Ruler Scale*/
+/* Ruler Scale*/ /* reference https://codepen.io/cfenzo/pen/jEGQGm*/
 label {
   font-size:100%;
   padding-top:2px;
   display:inline-block;
-  width:200em;
-  text-indent:3px;
+  width:600em;
+  text-indent:5px;
+  font-weight:normal;
+  max-width:inherit; /* to override bootstrap label max-width :100%*/
 }
 
 .slidecontainer {
@@ -233,12 +243,12 @@ th,td{
 .firstcol{
 	width:25%;
 }
-/*tr:hover{
+tr:hover{
 	background-color:#ddd;
 }
 tr:nth-child(even){
 	background-color:#f2f2f2;
-}*/
+}
 
 
 .footer {
