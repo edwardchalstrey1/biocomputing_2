@@ -41,19 +41,19 @@ def get_entries(gene=None, prot=None, acc=None, loc=None, all=False):
 
 def get_gene_list():
 
-	return(['SCCA1', 'SMAD4', 'ME2'])
+	return(['SCCA1', 'SMAD4', 'ME2', 'VPS4B'])
 
 def get_protein_product_list():
 
-	return(['U58b small nucleolar RNA', 'U58a small nucleolar RNA', 'Putative U58 small nucleolar RNA'])
+	return(['U58b small nucleolar RNA', 'U58a small nucleolar RNA', 'Putative U58 small nucleolar RNA', 'vacuolar protein sorting factor 4B'])
 
 def get_genbank_accession_list():
 
-	return(['AB065574', 'AB065915', 'AF025886'])
+	return(['AB065574', 'AB065915', 'AF025886', 'AF282904'])
 
 def get_chromosomal_location_list():
 
-	return(['18p11.2', '18q21.1', '18q21.2-q22'])
+	return(['18p11.2', '18q21.1', '18q21.2-q22', '18q21-q22'])
 
 # def get_codon_usage_frequencies(codon_list):
 
