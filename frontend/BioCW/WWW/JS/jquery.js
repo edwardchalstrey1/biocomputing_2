@@ -2,7 +2,7 @@
 
 File:       jquery.js
 
-Version:    V1
+Version:    V1 : Original
             
 Date:       24/04/18
 
