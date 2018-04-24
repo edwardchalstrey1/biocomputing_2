@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/local/bin/python3
 """ 
 Programme:  Index
 File:       index.cgi
@@ -147,9 +147,9 @@ html+="</div>\n"
 html+="</div>\n"
 html+="</form>"
 html+="<div class='footer'> Group : 1 Chromosome: 18 </div>"
-html+="<script type='text/javascript' src='http://localhost/BioCW2/WWW/JS/lastmodified.js'></script>\n"
+html+="<script type='text/javascript' src='http://localhost/BioCW/WWW/JS/lastmodified.js'></script>\n"
 html+="</div>"
-html += "<script type='text/javascript' src='http://localhost/BioCW2/WWW/JS/biocw2.js'></script>\n"
+html += "<script type='text/javascript' src='http://localhost/BioCW/WWW/JS/biocw.js'></script>\n"
 
 html += "</body>\n"
 

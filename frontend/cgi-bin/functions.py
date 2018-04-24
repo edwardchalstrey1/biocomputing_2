@@ -2,7 +2,7 @@
 
 
 
-""" Functions used in index.py all code by Trupti Gore"""
+""" Functions used in index.py"""
 import re
 
 

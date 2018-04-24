@@ -1,4 +1,6 @@
-#!/usr/bin/env python
+#!/usr/local/bin/python3
+
+
 """ 
 Programme:  Query
 File:       query.cgi
@@ -84,6 +86,7 @@ amino_acid=gene_dict['aa']
 cds=gene_dict['cds']
 res_site=gene_dict['restriction_sites']
 gene_codon_dict=gene_dict['table_data']  
+    
 #print(gene_codon_dict) 
 #for gene in gene_dict:
     #print(gene)
@@ -350,7 +353,7 @@ html+="<div class='container-fluid'>"
 html+="<div class='row'>"
 html+="<div class='col-sm-6'>"
 html+="<p> Gene: Codon Frequency Table </p>"           
-html+="<table border='1', style='border-collapse: collapse' >"
+html+="<table border='1', style='border-collapse: collapse', id='codon_freq' >"
 html+="<tr>"
     
 html+="<td></td>"
@@ -365,23 +368,22 @@ for c in clist:
     html+="<td rowspan='65'>" +c+ "</td>"
     #html+="</tr>"
     for key,value in sorted(gene_codon_dict.items()):
-        html+="<tr>"
+        html+="<tr class='high_codon'>"
         if key[0]==c:
-           
-            html+="<td>"+key+"</td>"
-           
-            for v in value:
-                
+           html+="<td>"+key+"</td>"
+           for v in value:
+                if v=='freq' or v=='ratio':
+                    value[v]=float("{0:.2f}".format(value[v]))
                 html+="<td>"+str(value[v])+"</td>"
-        html+="</tr>"     
-                
+        html+="</tr>"
     html+="</tr>"
 
-html+="</table>"  
+html+="</table>" 
+
 html+="</div>"  # columnn
 html+="<div class='col-sm-6'>"
 html+="<p> Chromosome: Codon Frequency Table </p>"  
-html+="<table border='1', style='border-collapse: collapse' >"
+html+="<table border='1', style='border-collapse: collapse', id='codon_chrom_freq' >"
 html+="<tr>"
     
 html+="<td></td>"
@@ -396,13 +398,12 @@ for c in clist:
     html+="<td rowspan='65'>" +c+ "</td>"
     #html+="</tr>"
     for key,value in sorted(chrom_codon_dict.items()):
-        html+="<tr>"
+        html+="<tr class='high_chrom_codon'>"
         if key[0]==c:
-           
             html+="<td>"+key+"</td>"
-           
             for v in value:
-                
+                if v=='freq' or v=='ratio':
+                    value[v]=float("{0:.2f}".format(value[v]))
                 html+="<td>"+str(value[v])+"</td>"
         html+="</tr>"     
                 
@@ -415,6 +416,11 @@ html+="</div>" # column2
 html+="</div>" # row
 html+="</div>" # conainer
 
+html+="<p class='right'> Overused Codons </p>"
+html+="<div class='tablekey overused'></div>"
+html+="<br>"
+html+="<p class='right'> Underused Codons </p>"
+html+="<div class='tablekey underused'></div>"
 
 html+="</div>" # panel
 html+="</div>" # wrapper
@@ -422,6 +428,7 @@ html+="</div>" # wrapper
 
 
 html+="<div class='footer'>Group : 1 Chromosome: 18 </div>"
+html+="<script type='text/javascript' src='http://localhost/BioCW/WWW/JS/jquery.js'></script>\n"
 html+="<script type='text/javascript' src='http://localhost/BioCW/WWW/JS/biocw.js'></script>\n"
 html+="<script type='text/javascript' src='http://localhost/BioCW/WWW/JS/lastmodified.js'></script>\n"
 html+="</body>\n"

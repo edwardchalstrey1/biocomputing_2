@@ -1,4 +1,36 @@
-/* to add internal comments. Code by Trupti Gore*/
+/* Programme:  style
+
+File:       style.css
+
+Version:    V1.3 
+            
+Date:       27/03/18
+
+Function:   Styling the elements
+
+Copyright:  (c) Trupti Gore, Birkbeck College, 2018
+Author:     Trupti Gore
+Address:    Msc Bioinformatics with Systems Biology (First Year)
+            Department of Biological sciences
+            Birkbeck,University of London
+            London WC1E 7HX
+
+----------------------------------------------------------------------------------------------------------
+
+This programme is released under the GNU Public Licence (GPL V3)
+
+----------------------------------------------------------------------------------------------------------
+
+Description:
+------------
+
+This style.css styles different html elements.
+
+-----------------------------------------------------------------------------------------------------------
+Revision History:
+-----------------
+V1.3     24/04/18        Original    By: TG  
+*/
 header
 	{
 	margin:1em;
@@ -16,7 +48,13 @@ font-family: "Raleway", sans-serif;
 padding:20px;
 
 }
-
+h4{
+    width: 80%;
+    background-color: #ffcc99; 
+	padding:10px;
+	
+	
+}
 .titlebox{
 	
     margin: auto;
@@ -28,12 +66,7 @@ padding:20px;
 .dropdown{
 	padding:20px;
 }
-/*span { 
-   
-    width:500px;
-    word-wrap:break-word;
-    white-space: normal;
-}*/
+
 
 .highlight-original{
 	background:color:white;
@@ -71,43 +104,28 @@ font-size: 100%;
 p{font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 font-size: 100%;
 }
-footer{
-	float:right;
-	display:block;
-	padding:20px;
-}
+
 .select-buttons {
 	padding:20px;
 	
 }
 
 
-.child{
-	height:100px;
-}
-.scroll 
+
+.scroll   /* Scroll class for horizontal scroll to display highlighted dna*/
 {
 max-width:980px; 
 background-color:#ffFFFF;
-/*height:300px;*/
 overflow-x:scroll;
-/*-webkit-overflow-x: auto;
--webkit-overflow-scrolling: touch;*/
 white-space: nowrap;
 overflow-y:hidden;
-/*-webkit-overflow-y: hidden;*/
 padding:0px;
-/*overflow: scroll;
--webkit-overflow-scrolling: touch;*/
-
 }
-h4{
-    width: 80%;
-    background-color: #ffcc99; 
-	padding:10px;
-	
-	
-}  
+
+.child{
+	height:100px;
+}
+  
 .container{
 	padding:20px;
 }
@@ -122,7 +140,7 @@ select{
 	 
 }
 
-/* Submit and Reset button code taken and modified from https://codepen.io/pavCieslak/pen/mytIo*/
+/* Submit and Reset button code reference: https://codepen.io/pavCieslak/pen/mytIo*/
 input[type="submit"]{
   display: block;
   margin: 0 auto;
@@ -161,19 +179,6 @@ input[type="reset"] {
   
   font-weight: bold;
 }
-/*.wrapper{
-	max-width:100%;
-	overflow:hidden;
-	padding:20px;
-}
-.right{
-	
-	float:right;
-	
-}
-.left{
-	float:left;
-}*
 
 
 /* Accordinan Reference https://www.w3schools.com/howto/howto_js_accordion.asp*/
@@ -197,7 +202,7 @@ input[type="reset"] {
 }
 /* adding icons to the buttons*/
 .accordion:after {
-    content: "\25BC"; /* Unicode character for "down arrow" sign () */
+    content: "\25BC"; /* Unicode character for "down arrow" sign*/
     font-size: 13px;
     color: #777;
     float: right;
@@ -205,14 +210,14 @@ input[type="reset"] {
 }
 
 .active:after {
-    content: "\25B2"; /* Unicode character for "up" sign (-) */
+    content: "\25B2"; /* Unicode character for "up arrow" sign */
 }
 
 .active, .accordion:hover {
     background-color: #ccc; 
 }
 
-/* Ruler Scale*/ /* reference https://codepen.io/cfenzo/pen/jEGQGm*/
+/* Ruler Scale : reference https://codepen.io/cfenzo/pen/jEGQGm*/
 label {
   font-size:100%;
   padding-top:2px;
@@ -244,12 +249,26 @@ th,td{
 	width:25%;
 }
 tr:hover{
-	background-color:#ddd;
+	background-color:#ffffe6;
 }
-tr:nth-child(even){
+/*tr:nth-child(even){
 	background-color:#f2f2f2;
+}*/
+
+.tablekey {
+  float: left;
+  width: 20px;
+  height: 20px;
+  margin: 5px;
+  padding:20px;;
+}
+.overused {
+  background: #33ccff;
 }
 
+.underused {
+  background: #ffd6cc;
+}
 
 .footer {
     /*position: fixed;*/
@@ -258,6 +277,9 @@ tr:nth-child(even){
     width: 100%;
     background-color: #F5F5F5;
     text-align: right;
-	padding:10px;
+	padding:20px;
 }
-
+.right{
+	padding:20px;
+	float:right;
+}

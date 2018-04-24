@@ -1,4 +1,4 @@
-/*needs internal comments. Code by Trupti Gore*/
+
 /*  This function disbles  the submit button and rest of the dropdown lists based on the selection */
 function disable(optid){
 	document.getElementById("submit").disabled=false;
@@ -112,5 +112,17 @@ function printem(name, domainName, character)
    document.writeln("</span>");
 }
 
+
+
+	
+
+
+                      
+
+	
+	
+	
+	
+	
 
     
