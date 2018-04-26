@@ -10,6 +10,6 @@ import for_database as fd
 import pprint as pp
 import business_rules as br
 
-pp.pprint(br.get_entries())
+pp.pprint(br.get_entries(prot="vacuolar protein sorting factor 4B"))
 
-
+# pp.pprint(br.get_table_data_entire_chromosome())
