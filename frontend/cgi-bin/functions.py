@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 
 
@@ -30,10 +30,25 @@ def highlight_coding_seq(complete_dna,cds):
         complete_dna=complete_dna[:end-1]+']'+complete_dna[end-1:]
     
     return(complete_dna)
+def highlight_original(dna):
+    """ This function is written to keep the alignment same for both ,highighted dna and original dna in the browsers . As in the highlight(dna),it replaces the delimeter by 
+    <span> so it is rendered as highlighted region on the webpage. Here while highlighting, the background color is kept white
+    >>> hilite("abc[def]ghi[jkl]")
+    'abc<span class= \"highlight\">def</span>ghi<span class= \"highlight\">jkl</span>'
+    """
     
-def hilite(dna):
+    high_dna=dna.replace("[","<span class= \"highlight-original\">")
+    high_dna=high_dna.replace("]","</span>")
+    #p=re.compile(r'[AGTC]')
+    #high_dna=p.sub('-',high_dna)
+    
+    return(high_dna)    
+def hilight(dna):
     """ This function replaces the delimeter by <span> so it is rendered as highlighted
-    region on the webpage """
+    region on the webpage 
+    >>> hilite("abc[def]ghi[jkl]")
+    'abc<span class= \"highlight\">def</span>ghi<span class= \"highlight\">jkl</span>'
+    """
     
     high_dna=dna.replace("[","<span class= \"highlight\">")
     high_dna=high_dna.replace("]","</span>")
@@ -42,9 +57,12 @@ def hilite(dna):
     
     return(high_dna)
 
-def hilite_res(dna):
+def hilight_res(dna):
     """ This functions replaces the delimeters with <span highlight_res class> to 
-    highlight the restriction enzymes"""
+    highlight the restriction enzymes
+    >>> hilite("abc[def]ghi[jkl]")
+    'abc<span class= \"highlight\">def</span>ghi<span class= \"highlight\">jkl</span>'
+    """
     
     high_res_dna=dna.replace("[","<span class= \"highlight_res\">")
     high_res_dna=high_res_dna.replace("]","</span>")
