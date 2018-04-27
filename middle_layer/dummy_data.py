@@ -80,23 +80,41 @@ def get_entries(gene=None, prot=None, acc=None, loc=None, all=False):
 
 		entries.append(SMAD4_dict)
 
+	###############################
+	### Dummy gene 4: FAKE_GENE ###
+	###############################
+	
+	FAKE_dict = {
+		"gene": "FAKE_GENE",
+		"prot": "FAKE_PROTEIN",
+		"acc": "FAKE_ACCESSION",
+		"cds": [[8, 16]],
+		"dna": 'GAATTCAAAAAAAAAAAAGGATCCAAAAAAAAAAAACTCGAGAAAAAAAA',
+		"aa": 'KKK',
+		"loc": "FAKE_LOCATION"
+	}
+
+	if gene == "FAKE_GENE" or prot == "FAKE_PROTEIN" or acc == "FAKE_ACCESSION" or loc == "FAKE_LOCATION":
+
+		entries.append(FAKE_dict)
+
 	return(entries)
 
 def get_gene_list():
 
-	return(['VPS4B', 'SCCA1', 'SMAD4'])
+	return(['VPS4B', 'SCCA1', 'SMAD4', 'FAKE_GENE'])
 
 def get_protein_product_list():
 
-	return(['vacuolar protein sorting factor 4B', 'squamous cell carcinoma antigen 1', 'SMAD4'])
+	return(['vacuolar protein sorting factor 4B', 'squamous cell carcinoma antigen 1', 'SMAD4', 'FAKE_PROTEIN'])
 
 def get_genbank_accession_list():
 
-	return(['AF282904', 'AB034984.1', 'AB043547'])
+	return(['AF282904', 'AB034984.1', 'AB043547', 'FAKE_ACCESSION'])
 
 def get_chromosomal_location_list():
 
-	return(['18q21-q22', '18q21.3', '18q21'])
+	return(['18q21-q22', '18q21.3', '18q21', 'FAKE_LOCATION'])
 
 dna_codon_to_amino_acid_dict = {
 
