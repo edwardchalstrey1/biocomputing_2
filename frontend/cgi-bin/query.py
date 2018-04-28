@@ -256,15 +256,15 @@ html+="<div ng-switch='myVar'>"  # parent div of angular.    AngularJS code refe
 html+="<div ng-switch-when='bm'>" # first child div of angular
 html+="<p>" + enzdict['BamHI'] +"</p>" 
 
-html+=str(res_site['BamHI']) 
+html+="<pre>"+ str(res_site['BamHI']) + "</pre>" 
 html+="</div>"                  # first child div of angular ends
 html+="<div ng-switch-when='bs'>" # second child div of angular
 html+="<p>" + enzdict['BsuMI'] +"</p>" 
-html+=str(res_site['BsuMI'])     
+html+="<pre>" +str(res_site['BsuMI']) +"</pre>"    
 html+="</div>"                      # second child div of angular ends
 html+="<div ng-switch-when='ec'>"   # third child div of angular
 html+="<p>" + enzdict['EcoRI'] +"</p>" 
-html+=str(res_site['EcoRI'])    
+html+="<pre>"+str(res_site['EcoRI'])+"</pre"  
 html+="</div>"                      # third child div of angular ends
 
 html+="</div>"   
