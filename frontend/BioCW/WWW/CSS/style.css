@@ -91,6 +91,7 @@ pre {
    line-height:1.42;
    color:333;
    word-break:break-word;
+   word-wrap:normal; /* Override bootsrap*/
    background-color:#ffffff;
    border:1px;
    border-radius:0px;
@@ -222,7 +223,7 @@ label {
   font-size:100%;
   padding-top:2px;
   display:inline-block;
-  width:600em;
+  width:300em;
   text-indent:5px;
   font-weight:normal;
   max-width:inherit; /* to override bootstrap label max-width :100%*/
@@ -243,7 +244,7 @@ table{
 th,td{
 	/*width:100%;*/
 	
-	padding:0px;
+	padding:10px;
 }
 .firstcol{
 	width:25%;

@@ -47,27 +47,22 @@ acc_list=br.get_genbank_accession_list()
 prot_list=br.get_protein_product_list()
 loc_list=br.get_chromosomal_location_list()
 
-#******** Read the values from  xml string form
-#genes=ET.fromstring(gene_list)
-#accession=ET.fromstring(acc_list)
-#proteins=ET.fromstring(prot_list)
-#locations=ET.fromstring(loc_list)
 
 
 #****************** Main CGI Script to display data ***************
 
 
 html = "<html>\n"
-html += "<head>\n"
 
+html += "<head>\n"
+html+="<?xml version='1.0' encoding='iso-8859-1'?>"
+html+="<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.1//EN''http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd>"
+html+="<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en'>"
 html += "<title> Chromosome 18 </title>\n"
 html+="<link rel='stylesheet' href='http://localhost/BioCW/WWW/CSS/bootstrap.min.css'></script>\n"
 html+="<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>\n"
 html+="<script src='http://localhost/BioCW/WWW/JS/bootstrap.min.js'></script>\n"
-
 html += "<link rel='stylesheet'  href='http://localhost/BioCW/WWW/CSS/style.css' type='text/css' />\n"
-
-
 html+="<meta name='viewport' content='width=device-width, initial-scale=1'>\n"
 html += "</head>\n"
 
@@ -119,20 +114,12 @@ html+="<div class='col-sm-3' id='div-gene-info' class='dropdown'>\n"
 html+="<h4> Location </h4>\n"
 html+="<select name='Location' id='locid' onClick=disable(id)>\n" 
    
-#for loc in locations.iter(tag='location'):
 for loc in loc_list:
-   #html+="<option id='opt-loc'>" +  loc.text + "</option>"
    html+="<option id='opt-loc'>" +  loc + "</option>" 
 	
 html+="</select>\n"
 html+="</div>\n"
-#html+="<div class='col-md-2' id='div-gene -info'>\n"
-#html+="<h4> Restriction Enzyme</h4>\n"
-#html+="<select name='Location' id='locid' onClick=change(id)>\n" 
-   
-#html+="<select class='selectgene' name='Enzyme' id=enzid><option value='BamHI'>BamHI</option> <option value='BsuMI'>BsuMI</option><option value='EcoRI'>EcoRI</option> "
-#html+="</select>\n"
-#html+="</div>\n"
+
 html+="</div>\n"
 html+="</div>\n"
 html+="<div class='container'>\n"

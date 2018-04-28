@@ -2,7 +2,7 @@
 
 File:       jquery.js
 
-Version:    V1 : Original
+Version:    V1
             
 Date:       24/04/18
 
@@ -30,40 +30,110 @@ if it satisfies the frequency criteria then based on the value it highlights the
 -----------------------------------------------------------------------------------------------------------
 Revision History:
 -----------------
-V7      24/04/18        Original    By: TG  
+V1      24/04/18        Original    By: TG  
 */
 
 
 $(document).ready(function(){
+	var freqArray = new Array();
+	var freqChromArray=new Array();
+	
 	$('#codon_freq tr.high_codon td:nth-child(3)').each(function(){  /* Ref: https://stackoverflow.com/questions/7656860/jquery-highlight-row-based-on-column-value?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa*/
-		if ($(this).text() > 2.00){
+		freqArray.push($(this).text());
+		
+	});
+	
+		highfreqcodon=findMaxVal(freqArray) /* To find highest 3 and loweset 3 codon frequencies.*/
+	    lowfreqcodon=findMinVal(freqArray)
+	
+	$('#codon_freq tr.high_codon td:nth-child(3)').each(function(){
+		
+		for(j=0;j<highfreqcodon.length;j++){
+			if ($(this).text() == highfreqcodon[j]){
 			
-			$(this).parent().css('background-color', '#33ccff');
+				$(this).parent().css('background-color', '#33ccff');
 			
 		}
 		
+		}
+		
 	
-	
-		else if ($(this).text() < 0.5){
+		for(j=0;j<lowfreqcodon.length;j++){
+		if ($(this).text() == lowfreqcodon[j]){
 			
 			$(this).parent().css('background-color', '#ffd6cc');
 		}
+	}
 		
 		});	
 		
 	$('#codon_chrom_freq tr.high_chrom_codon td:nth-child(3)').each(function(){
-		if ($(this).text() > 2.00){
+		freqChromArray.push($(this).text());
+	});
+		highfreqcodon=findMaxVal(freqChromArray) /* To find highest 3 and loweset 3 codon frequencies.*/
+	    lowfreqcodon=findMinVal(freqChromArray)
+	
+	$('#codon_chrom_freq tr.high_chrom_codon td:nth-child(3)').each(function(){
+		for(j=0;j<highfreqcodon.length;j++){
+			
+			if ($(this).text() == highfreqcodon[j]){
 			
 			$(this).parent().css('background-color', '#33ccff');
 		}
-		else if ($(this).text() < 0.5){
+	}
+		for(j=0;j<lowfreqcodon.length;j++){
+			if ($(this).text() == lowfreqcodon[j]){
 			
 			$(this).parent().css('background-color', '#ffd6cc');
 		}
+	}
 		
 		
 		});		
 		
 		
-	});
+	})
+	
+	function findMaxVal(freqArray1){
+		
+		var highfreqcodon=new Array();
+		
+		
+		for(i=0;i<3;i++){	
+			maxval=Math.max.apply(Math,freqArray1);
+			highfreqcodon.push(maxval);
+			maxval=maxval.toString();
+			
+			const maxIndex=freqArray1.indexOf(maxval);
+			freqArray1 = freqArray1.filter(function(condition) { /* To remove multiple occurances of the number*/
+			    return condition !== maxval;
+			});
+		
+	}
+		
+		return(highfreqcodon)
+}
+	function findMinVal(freqArray1){
+		
+		var lowfreqcodon=new Array();
+		
+		for(i=0;i<3;i++){	
+		
+		minval=Math.min.apply(Math,freqArray1.filter(number=> number!=0));	/*To exclude 0*/
+		
+		lowfreqcodon.push(minval)
+		
+		minval=minval.toString();
+		const minIndex=freqArray1.indexOf(minval)
+		freqArray1 = freqArray1.filter(function(condition) { /* To remove multiple occurances of the number*/
+		    return condition !== minval;
+		});
+		
+		
+		
+	}
+	
+	return(lowfreqcodon)
+}
+	
 	

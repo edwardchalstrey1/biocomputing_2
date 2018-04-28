@@ -56,7 +56,7 @@ import operator
 from operator import itemgetter
 import business_rules as br
 import functions as f
-import dummy_data as dd
+
 
 #**************************************
 #***Get form values from index.cgi*****
@@ -87,43 +87,13 @@ cds=gene_dict['cds']
 res_site=gene_dict['restriction_sites']
 gene_codon_dict=gene_dict['table_data']  
     
-#print(gene_codon_dict) 
-#for gene in gene_dict:
-    #print(gene)
- #   for gene_info in gene:
-  #  	print(gene_info)
-   # 	if gene[gene_info]==gid or gene[gene_info]==acc or gene[gene_info]==prot or gene[gene_info]==loc: # no need to check here...
-    		
-    #        protein=gene['prot']
-     #       dna=gene['dna'].upper()
-      #      gene_name=gene['gene']
-       #     amino_acid=gene['aa']
-        #    cds=gene['cds']
-         #   res_site=gene['restriction_sites']
-            #cseq=d['cds_seq']
-          #  gene_codon_dict=gene['table_data']
-           # break;
-       # else:
-        #    protein='The infomation about the protein is not available for this gene'
-         #   dna='The infomation about the dna is not available for this gene'
-          #  amino_acid='The infomation about the amino acid is not available for this gene'
-            
 
-
-#codon_freq=br.count_codons(dna)  
 #******************************************************************
 #*** Codon frequency table for the gene and entire chromosome******
 #******************************************************************
 
-#codon_list= br.dna_codon_to_amino_acid_dict.keys() 
-#codon_dict=dd.get_codon_usage_frequencies(codon_list)
-#gene_codon_dict=br.get_table_data(codon_dict)
-chrom_codon_dict=dd.get_table_data_entire_chromosome()
-#print(gene_codon_dict)
+chrom_codon_dict=br.get_table_data_entire_chromosome()
 
-    
-  
-     
 #******* Get Coding Sequence*********
 
 
@@ -135,10 +105,10 @@ for a in amino_acid:
     aligned_amino_acid += a + "  "
 aligned_amino_acid+='stop'
 #***************Highlight coding parts of the dna**************
-#original_dna=dna
+original_dna=dna
 dna=f.highlight_coding_seq(dna,cds)    
 coding_highlighted_dna=f.hilight(dna)
-original_dna=f.highlight_original(dna)  # highlighting original dna in white background at the same places to keep the alignment in the browser.
+display_original_dna=f.highlight_original(dna)  # highlighting original dna in white background at the same places to keep the alignment in the browser.
 
  
 #********** Restriction enzyme site. Highlight only******* 
@@ -158,8 +128,8 @@ for enzyme,coordinates in res_site.items():
     else:
         
         restricted_dna=' The selected restriction enzyme {} cuts within the coding region and hence not a useful enzyme to use for the genetic manipulation of this gene.'.format(enzyme)     
-    enzdict[enzyme]=restricted_dna     
-    
+    enzdict[enzyme]=restricted_dna    
+   
 
 i=0 # variable for indicator scale
 
@@ -169,6 +139,9 @@ i=0 # variable for indicator scale
 	
 html="<html>\n"
 html+="<head>\n"
+html+="<?xml version='1.0' encoding='iso-8859-1'?>"
+html+="<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.1//EN''http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd>"
+html+="<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en'>"
 html+="<title> Detailed information about the Gene </title>\n"
 html+="<meta name='viewport' content='width=device-width, initial-scale=1.0'>\n"
 
@@ -260,13 +233,13 @@ html+="<div class='child'>" # child for label
 
 while i<len(dna):
     html+="<label>" +str(i)+"</label>"
-    i+=1000
+    i+=500
 
 html+="</div>"  # end label child
 html+="<div class='child'>" # first child
 html+="<pre>\n"
 
-html+=original_dna
+html+=display_original_dna
 html+="</pre>"
 html+="</div>"               # end first child 
 
@@ -362,7 +335,7 @@ html+="<th> Amino</th>"
 html+="<th> Frequency </th>"
 html+="<th> Ratio </th>"
 html+="</tr>"
-
+freqlist=[]
 for c in clist:
     html+="<tr>"
     html+="<td rowspan='65'>" +c+ "</td>"
@@ -371,12 +344,13 @@ for c in clist:
         html+="<tr class='high_codon'>"
         if key[0]==c:
            html+="<td>"+key+"</td>"
-           for v in value:
-                if v=='freq' or v=='ratio':
-                    value[v]=float("{0:.2f}".format(value[v]))
-                html+="<td>"+str(value[v])+"</td>"
+           html+="<td>"+str(value['aa'])+"</td>"
+           html+="<td>"+str(float("{0:.2f}".format(value['freq'])))+"</td>"
+           html+="<td>"+str(float("{0:.2f}".format(value['ratio'])))+"</td>"
+         
         html+="</tr>"
     html+="</tr>"
+
 
 html+="</table>" 
 
@@ -401,10 +375,9 @@ for c in clist:
         html+="<tr class='high_chrom_codon'>"
         if key[0]==c:
             html+="<td>"+key+"</td>"
-            for v in value:
-                if v=='freq' or v=='ratio':
-                    value[v]=float("{0:.2f}".format(value[v]))
-                html+="<td>"+str(value[v])+"</td>"
+            html+="<td>"+str(value['aa'])+"</td>"
+            html+="<td>"+str(float("{0:.2f}".format(value['freq'])))+"</td>"
+            html+="<td>"+str(float("{0:.2f}".format(value['ratio'])))+"</td>"
         html+="</tr>"     
                 
     html+="</tr>"
@@ -414,13 +387,49 @@ html+="</table>"
 html+="</div>" # column2
 
 html+="</div>" # row
+html+="</br>"
+html+="<p> Table Keys</p>"
+html+="<table id='keys',border='1', style='border-collapse: collapse'>"
+html+="<tr>"
+html+="<th class='firstcol'> Key </th>"
+html+="<th> Meaning</th>"
+html+="</tr>"
+html+="<tr>"
+html+="<td class='firstcol'>"
+html+="<div class='tablekey overused'></div>"
+html+="</td>"
+html+="<td>"
+html+="<p> Overused Codons </p>"
+html+="</td>"
+html+="</tr>"
+html+="<tr>"
+html+="<td class='firstcol'>"
+html+="<div class='tablekey underused'></div>"
+html+="</td>"
+html+="<td>"
+html+="<p> Underused Codons </p>"
+html+="</td>"
+html+="</tr>"
+html+="<tr>"
+html+="<td class='firstcol'>"
+html+="<p> Frequency</p>"
+html+="</td>"
+html+="<td>"
+html+="<p> explaination of freq </p>"
+html+="</td>"
+html+="</tr>"
+html+="<tr>"
+html+="<td class='firstcol'>"
+html+="<p> Ratio </p>"
+html+="</td>"
+html+="<td>"
+html+="<p> Explaination of ratio </p>"
+html+="</td>"
+html+="</tr>"
+html+="</table>"
 html+="</div>" # conainer
 
-html+="<p class='right'> Overused Codons </p>"
-html+="<div class='tablekey overused'></div>"
-html+="<br>"
-html+="<p class='right'> Underused Codons </p>"
-html+="<div class='tablekey underused'></div>"
+
 
 html+="</div>" # panel
 html+="</div>" # wrapper
