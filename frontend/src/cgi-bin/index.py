@@ -1,7 +1,7 @@
 #!/usr/local/bin/python3
 """ 
 Programme:  Index
-File:       index.cgi
+File:       index.py
 
 Version:    V5
 Date:       12/04/18
