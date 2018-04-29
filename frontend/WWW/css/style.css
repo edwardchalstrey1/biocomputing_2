@@ -1,0 +1,290 @@
+/* Programme:  style
+
+File:       style.css
+
+Version:    V1.3 
+            
+Date:       27/03/18
+
+Function:   Styling the elements
+
+Copyright:  (c) Trupti Gore, Birkbeck College, 2018
+Author:     Trupti Gore
+Address:    Msc Bioinformatics with Systems Biology (First Year)
+            Department of Biological sciences
+            Birkbeck,University of London
+            London WC1E 7HX
+
+----------------------------------------------------------------------------------------------------------
+
+This programme is released under the GNU Public Licence (GPL V3)
+
+----------------------------------------------------------------------------------------------------------
+
+Description:
+------------
+
+This style.css styles different html elements.
+
+-----------------------------------------------------------------------------------------------------------
+Revision History:
+-----------------
+V1.3     24/04/18        Original    By: TG  
+*/
+header
+	{
+	margin:1em;
+	background:#85C1E9;
+	height:5em;
+	 }
+
+
+body
+	{
+	background-color:#FFFFFF    ;
+	}
+h1{
+font-family: "Raleway", sans-serif;
+padding:20px;
+
+}
+h4{
+    width: 80%;
+    background-color: #ffcc99; 
+	padding:10px;
+	
+	
+}
+.titlebox{
+	
+    margin: auto;
+    width: 50%;
+    
+    padding: 20px;
+	
+}
+.dropdown{
+	padding:20px;
+}
+
+
+.highlight-original{
+	background:color:white;
+}
+.highlight{
+background-color: yellow;
+
+}
+
+.highlight_res{
+background-color: #f4426b;
+
+}
+
+
+pre {
+   font-family: "Lucida Console", monospace; !important
+   display:block;
+   padding:9.5px;
+   margin:0 0 10px;
+   font-size:100%;
+   line-height:1.42;
+   color:333;
+   word-break:break-word;
+   word-wrap:normal; /* Override bootsrap*/
+   background-color:#ffffff;
+   border:1px;
+   border-radius:0px;
+   overflow:visible; !important
+   
+}
+.display{
+font-size: 100%;
+
+}
+p{font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+font-size: 100%;
+}
+
+.select-buttons {
+	padding:20px;
+	
+}
+
+
+
+.scroll   /* Scroll class for horizontal scroll to display highlighted dna*/
+{
+max-width:980px; 
+background-color:#ffFFFF;
+overflow-x:scroll;
+white-space: nowrap;
+overflow-y:hidden;
+padding:0px;
+}
+
+.child{
+	height:100px;
+}
+  
+.container{
+	padding:20px;
+}
+select{
+	width:80%;
+
+}
+
+.center {
+	text-align: center;
+	vertical-align: middle;
+	 
+}
+
+/* Submit and Reset button code reference: https://codepen.io/pavCieslak/pen/mytIo*/
+input[type="submit"]{
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+  height: 50px;
+  font-family: Helvetica;
+  border:5px solid #719430;
+  
+  background: linear-gradient(#719430,#87B139);
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0px 2px 10px grey;
+  transition: 150ms ease;
+  font-weight: bold;
+  
+}
+
+input[type="submit"]:disabled {
+    background: #ddd;
+	border: 5px solid grey;
+}
+input[type="select"]:disabled {
+    background: #ccc;
+	
+}
+
+input[type="reset"] {
+	
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+  height: 50px;
+  font-family: Helvetica;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0px 2px 10px grey;
+  transition: 150ms ease;
+  border: 5px solid #721414;
+  background: linear-gradient(#991b1b,#490e0e);
+  
+  font-weight: bold;
+}
+
+
+/* Accordinan Reference https://www.w3schools.com/howto/howto_js_accordion.asp*/
+.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
+
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    display: none;
+    overflow: hidden;
+}
+/* adding icons to the buttons*/
+.accordion:after {
+    content: "\25BC"; /* Unicode character for "down arrow" sign*/
+    font-size: 13px;
+    color: #777;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\25B2"; /* Unicode character for "up arrow" sign */
+}
+
+.active, .accordion:hover {
+    background-color: #ccc; 
+}
+
+/* Ruler Scale : reference https://codepen.io/cfenzo/pen/jEGQGm*/
+label {
+  font-size:100%;
+  padding-top:2px;
+  display:inline-block;
+  width:300em;
+  text-indent:5px;
+  font-weight:normal;
+  max-width:inherit; /* to override bootstrap label max-width :100%*/
+}
+
+.slidecontainer {
+    width: 100%; /* Width of the outside  */
+}
+
+
+table{
+	padding:10px;
+	border-collapse:collapse;
+	
+	
+	
+}
+th,td{
+	/*width:100%;*/
+	
+	padding:10px;
+}
+.firstcol{
+	width:25%;
+}
+tr:hover{
+	background-color:#ffffe6;
+}
+/*tr:nth-child(even){
+	background-color:#f2f2f2;
+}*/
+
+.tablekey {
+  float: left;
+  width: 20px;
+  height: 20px;
+  margin: 5px;
+  padding:20px;;
+}
+.overused {
+  background: #33ccff;
+}
+
+.underused {
+  background: #ffd6cc;
+}
+
+.footer {
+    /*position: fixed;*/
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #F5F5F5;
+    text-align: right;
+	padding:20px;
+}
+.right{
+	padding:20px;
+	float:right;
+}
