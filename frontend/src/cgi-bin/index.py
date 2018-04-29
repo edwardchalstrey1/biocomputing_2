@@ -1,3 +1,4 @@
+#!/usr/local/bin/python3
 """ 
 Programme:  Index
 File:       index.cgi
@@ -28,7 +29,6 @@ on Chromosome 18.
 -----------------------------------------------------------------------------------------------------------
 Revision History:
 -----------------
-V5  12/04/18    Original    By: TG  Previous versions are not tracked.
 V5  12/04/18    Original    By: TG  
 
 """
