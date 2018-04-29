@@ -1,3 +1,39 @@
+/* Programme:  jquery
+
+File:       biocw.js
+
+Version:    V1.2
+            
+Date:       24/04/18
+
+Function:   javascript functions for the CGI scripts
+
+Copyright:  (c) Trupti Gore, Birkbeck College, 2018
+Author:     Trupti Gore
+Address:    Msc Bioinformatics with Systems Biology (First Year)
+            Department of Biological sciences
+            Birkbeck,University of London
+            London WC1E 7HX
+
+----------------------------------------------------------------------------------------------------------
+
+This programme is released under the GNU Public Licence (GPL V3)
+
+----------------------------------------------------------------------------------------------------------
+
+Description:
+------------
+
+This javascript function files has functions such as enable(),disable() to enable or disable different html
+elements and an accordian function.
+
+-----------------------------------------------------------------------------------------------------------
+Revision History:
+-----------------
+V1      10/04/18        Original    By: TG  
+V1.1    20/04/18		Added switch statement
+V1.2	24/04/18		Accordian
+*/
 
 /*  This function disbles  the submit button and rest of the dropdown lists based on the selection */
 function disable(optid){

@@ -33,7 +33,7 @@ Revision History:
 V1      24/04/18        Original    By: TG  
 */
 
-
+/* document.ready() call which will read the table id, scan through each column of the table and if the given value is found it will highlight the parent row*/
 $(document).ready(function(){
 	var freqArray = new Array();
 	var freqChromArray=new Array();
@@ -93,7 +93,7 @@ $(document).ready(function(){
 		
 		
 	})
-	
+/* Function to find the maximum value from the frequency array*/	
 	function findMaxVal(freqArray1){
 		
 		var highfreqcodon=new Array();
@@ -113,20 +113,20 @@ $(document).ready(function(){
 		
 		return(highfreqcodon)
 }
+/* Function to find mimimum value from the frequency array*/	
 	function findMinVal(freqArray1){
 		
 		var lowfreqcodon=new Array();
 		
 		for(i=0;i<3;i++){	
 		
-		minval=Math.min.apply(Math,freqArray1.filter(number=> number!=0));	/*To exclude 0*/
-		
+		minval=Math.min.apply(Math,freqArray1);/*.filter(number=> number!=0));	/*To exclude 0*/
 		lowfreqcodon.push(minval)
-		
 		minval=minval.toString();
+		
 		const minIndex=freqArray1.indexOf(minval)
 		freqArray1 = freqArray1.filter(function(condition) { /* To remove multiple occurances of the number*/
-		    return condition !== minval;
+		    return condition !== minval && condition!=0.0;
 		});
 		
 		
