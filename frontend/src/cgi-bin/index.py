@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """ 
 Programme:  Index
 File:       index.cgi
@@ -30,6 +29,7 @@ on Chromosome 18.
 Revision History:
 -----------------
 V5  12/04/18    Original    By: TG  Previous versions are not tracked.
+V5  12/04/18    Original    By: TG  
 
 """
 #***********************************************
@@ -39,7 +39,6 @@ print("Content-Type: text/html\n")
 import cgi;
 import cgitb
 import business_rules as br
-import xml.etree.ElementTree as ET
 
 #******* Get the values from middle layer to display on the form****************
 gene_list = br.get_gene_list()
@@ -69,9 +68,9 @@ html += "</head>\n"
 html += "<body onload=document.getElementById(\"submit\").disabled=true>\n"
 html+="<div class='container'>\n"
 html+="<div class='row'>\n"
-html+="<div class='titlebox'>"
+html+="<section class='titlebox'>"
 html+="<h1 class=center> Group 1 : Chromosome 18 </h1>\n"
-html+="</div>"
+html+="</section>"
 html+="</div>"
 html+="</div>"
 html+="<form action='query.py' method='post' onreset=enable()>\n"

@@ -67,40 +67,42 @@ def highlight_coding_seq(complete_dna,cds):
     return(complete_dna)
 def highlight_original(dna):
     """ This function is written to keep the alignment same for both ,highighted dna and original dna in the browsers . As in the highlight(dna),it replaces the delimeter by 
-    <span> so it is rendered as highlighted region on the webpage. Here while highlighting, the background color is kept white
+    <mark> so it is rendered as highlighted region on the webpage. Here while highlighting, the background color is kept white
     >>> hilite("abc[def]ghi[jkl]")
-    'abc<span class= \"highlight\">def</span>ghi<span class= \"highlight\">jkl</span>'
+    'abc<mark class= \"highlight\">def</mark>ghi<mark class= \"highlight\">jkl</mark>'
     """
     
-    high_dna=dna.replace("[","<span class= \"highlight-original\">")
-    high_dna=high_dna.replace("]","</span>")
+    #high_dna=dna.replace("[","<span class= \"highlight-original\">")
+    high_dna=dna.replace("[","<mark class= \"highlight-original\">")
+    #high_dna=high_dna.replace("]","</mark>")
+    high_dna=high_dna.replace("]","</mark>")
     #p=re.compile(r'[AGTC]')
     #high_dna=p.sub('-',high_dna)
     
     return(high_dna)    
 def hilight(dna):
-    """ This function replaces the delimeter by <span> so it is rendered as highlighted
+    """ This function replaces the delimeter by <mark> so it is rendered as highlighted
     region on the webpage 
     >>> hilite("abc[def]ghi[jkl]")
-    'abc<span class= \"highlight\">def</span>ghi<span class= \"highlight\">jkl</span>'
+    'abc<mark class= \"highlight\">def</mark>ghi<mark class= \"highlight\">jkl</mark>'
     """
     
-    high_dna=dna.replace("[","<span class= \"highlight\">")
-    high_dna=high_dna.replace("]","</span>")
+    high_dna=dna.replace("[","<mark class= \"highlight\">")
+    high_dna=high_dna.replace("]","</mark>")
     #p=re.compile(r'[AGTC]')
     #high_dna=p.sub('-',high_dna)
     
     return(high_dna)
 
 def hilight_res(dna):
-    """ This functions replaces the delimeters with <span highlight_res class> to 
+    """ This functions replaces the delimeters with <mark highlight_res class> to 
     highlight the restriction enzymes
     >>> hilite("abc[def]ghi[jkl]")
-    'abc<span class= \"highlight\">def</span>ghi<span class= \"highlight\">jkl</span>'
+    'abc<mark class= \"highlight_res\">def</mark>ghi<mark class= \"highlight_res\">jkl</mark>'
     """
     
-    high_res_dna=dna.replace("[","<span class= \"highlight_res\">")
-    high_res_dna=high_res_dna.replace("]","</span>")
+    high_res_dna=dna.replace("[","<mark class= \"highlight_res\">")
+    high_res_dna=high_res_dna.replace("]","</mark>")
     
     return(high_res_dna)
 
@@ -154,8 +156,8 @@ def check_res_enzyme(res_enzyme,cds,res_site):
     return(resflag)        
 
 def hilite_dash(dna):
-    high_res_dna=dna.replace("1","<span class= \"highlight_res\">")
-    high_res_dna=high_res_dna.replace("2","</span>")
+    high_res_dna=dna.replace("1","<mark class= \"highlight_res\">")
+    high_res_dna=high_res_dna.replace("2","</mark>")
     return(high_res_dna)   
   
 #p=re.compile(r'[a-zA-Z]')
