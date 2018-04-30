@@ -5,15 +5,15 @@ Biocomputing 2 project for Birkbeck MSc
 
 [Link to working website](http://student.cryst.bbk.ac.uk/~gt002/index.html)
 
-###Team:
+### Team:
 
-####Middle Layer
+#### Middle Layer
 
   Name: Edward Chalstrey
   
   Email:
   
-####Web Front End
+#### Web Front End
 
   Name: Trupti Gore
   
