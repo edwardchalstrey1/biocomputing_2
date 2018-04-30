@@ -8,11 +8,15 @@ Biocomputing 2 project for Birkbeck MSc
 ###Team:
 
 ####Middle Layer
+
   Name: Edward Chalstrey
+  
   Email:
   
 ####Web Front End
+
   Name: Trupti Gore
+  
   Email: trupti_gore@yahoo.com
 
 
