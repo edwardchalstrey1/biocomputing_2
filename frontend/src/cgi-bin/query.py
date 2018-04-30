@@ -108,12 +108,11 @@ aligned_amino_acid+='stop'
 original_dna=dna
 dna=f.highlight_coding_seq(dna,cds)    
 coding_highlighted_dna=f.hilight(dna)
-display_original_dna=f.highlight_original(dna)  # highlighting original dna in white background at the same places to keep the alignment in the browser.
 
  
-#********** Restriction enzyme site. Highlight only******* 
+#********** Restriction enzyme site. Highlight only*********** 
 #*****if these sites are not found in between the start********
-#*********and End of coding region.**********
+#*********and End of coding region.****************************
 
 enzdict={} # Dictionary is pre populated to display the highlighted restriction enzymes according to the selection
 for enzyme,coordinates in res_site.items():
@@ -204,17 +203,11 @@ html+="<br>"
 html+="<br>"
 html+="<br>"
 
-html+="<p> Original Sequence </p>\n"
-html+="<br>"
-html+="<br>"
-html+="<br>"
-html+="<br>"
-
 html+="<p> Highlighted coding region: </p>\n"
 html+="<br>"
 html+="<br>"
 html+="<br>"
-
+html+="<br>"
 html+="<p> " 'Select Restriction Enzyme to check' "</p>\n"
 
 html+="<form>"
@@ -233,38 +226,33 @@ html+="<div class='child'>" # child for label
 
 while i<len(dna):
     html+="<label>" +str(i)+"</label>"
-    i+=500
+    i+=250
 
 html+="</div>"  # end label child
-html+="<div class='child'>" # first child
-html+="<pre>\n"
 
-html+=display_original_dna
-html+="</pre>"
-html+="</div>"               # end first child 
 
-html+="<div class='child'>\n"  #second child
+html+="<div class='child'>\n"  #first child
 html+="<pre>\n"
 html+=coding_highlighted_dna 
 html+="</pre>\n"
-html+="</div>\n"            # end second child
+html+="</div>\n"            # end first child
 
 
 html+="<div id= 'res_dna' class='child'>\n" # thild child
 #html+="<div id='showHide' display = none'>\n"
 html+="<div ng-switch='myVar'>"  # parent div of angular.    AngularJS code reference: https://www.w3schools.com/angular/tryit.asp?filename=try_ng_form_radio
 html+="<div ng-switch-when='bm'>" # first child div of angular
-html+="<p>" + enzdict['BamHI'] +"</p>" 
+html+="<pre>" + enzdict['BamHI'] +"</pre>" 
 
 html+="<pre>"+ str(res_site['BamHI']) + "</pre>" 
 html+="</div>"                  # first child div of angular ends
 html+="<div ng-switch-when='bs'>" # second child div of angular
-html+="<p>" + enzdict['BsuMI'] +"</p>" 
+html+="<pre>" + enzdict['BsuMI'] +"</pre>" 
 html+="<pre>" +str(res_site['BsuMI']) +"</pre>"    
 html+="</div>"                      # second child div of angular ends
 html+="<div ng-switch-when='ec'>"   # third child div of angular
-html+="<p>" + enzdict['EcoRI'] +"</p>" 
-html+="<pre>"+str(res_site['EcoRI'])+"</pre"  
+html+="<pre>" + enzdict['EcoRI'] +"</pre>" 
+html+="<pre>"+str(res_site['EcoRI'])+"</pre>"  
 html+="</div>"                      # third child div of angular ends
 
 html+="</div>"   # parent div of angular ends
@@ -312,14 +300,11 @@ html+="</div>"              # scroll div ends
 html+="</td>"
 html+="</tr>"
 html+="</table>"
-html+="<br>"
-html+="<br>"
-html+="<p> The codon usage frequency:</p>\n"
-html+="<br>"
+
 html+="<br>"
 #******* Create accordian to display codon table ***********. https://www.w3schools.com/howto/howto_js_accordion.asp
 
-html+="<button class='accordion'>Codon Frequency Table</button>"
+html+="<button class='accordion'><p>The Codon Usage Frequency Table : Click to view</p></button>"
 html+="<div class='panel'>"
 clist=['A','C','G','T']
 html+="<div class='container-fluid'>"
@@ -339,7 +324,7 @@ freqlist=[]
 for c in clist:
     html+="<tr>"
     html+="<td rowspan='65'>" +c+ "</td>"
-    #html+="</tr>"
+    
     for key,value in sorted(gene_codon_dict.items()):
         html+="<tr class='high_codon'>"
         if key[0]==c:
@@ -370,7 +355,7 @@ html+="</tr>"
 for c in clist:
     html+="<tr>"
     html+="<td rowspan='65'>" +c+ "</td>"
-    #html+="</tr>"
+    
     for key,value in sorted(chrom_codon_dict.items()):
         html+="<tr class='high_chrom_codon'>"
         if key[0]==c:
@@ -436,10 +421,16 @@ html+="</div>" # wrapper
 
 
 
-html+="<div class='footer'>Group : 1 Chromosome: 18 </div>"
+html+="<footer class='footer'>"
+html+="<p>Group : 1 Chromosome: 18 </p>"
+html+="<script type='text/javascript' src='/frontend/WWW/js/lastmodified.js'></script>\n"
+html+="<script type='text/javascript' src='/frontend/WWW/js/email.js'></script>\n"
+
+
+html+=" </footer>"
 html+="<script type='text/javascript' src='/frontend/WWW/js/jquery.js'></script>\n"
 html+="<script type='text/javascript' src='/frontend/WWW/js/biocw.js'></script>\n"
-html+="<script type='text/javascript' src='/frontend/WWW/js/lastmodified.js'></script>\n"
+
 html+="</body>\n"
 
 html+="</html>\n"

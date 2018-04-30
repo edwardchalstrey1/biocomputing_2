@@ -49,7 +49,7 @@ padding:20px;
 
 }
 h4{
-    width: 80%;
+    width: 85%;
     background-color: #ffcc99; 
 	padding:10px;
 	
@@ -58,7 +58,7 @@ h4{
 .titlebox{
 	
     margin: auto;
-    width: 50%;
+    width: 80%;
     
     padding: 20px;
 	
@@ -68,9 +68,6 @@ h4{
 }
 
 
-.highlight-original{
-	background-color:#ffffff;
-}
 .highlight{
 background-color: yellow;
 
@@ -188,7 +185,7 @@ input[type="reset"] {
 
 /* Accordinan Reference https://www.w3schools.com/howto/howto_js_accordion.asp*/
 .accordion {
-    background-color: #eee;
+    background-color: #6699cc;
     color: #444;
     cursor: pointer;
     padding: 18px;
@@ -208,7 +205,7 @@ input[type="reset"] {
 /* adding icons to the buttons*/
 .accordion:after {
     content: "\25BC"; /* Unicode character for "down arrow" sign*/
-    font-size: 13px;
+    font-size: 1.5em;
     color: #777;
     float: right;
     margin-left: 5px;
@@ -219,7 +216,7 @@ input[type="reset"] {
 }
 
 .active, .accordion:hover {
-    background-color: #ccc; 
+    background-color: #ccffff; 
 }
 
 /* Ruler Scale : reference https://codepen.io/cfenzo/pen/jEGQGm*/
@@ -227,7 +224,7 @@ label {
   font-size:100%;
   padding-top:2px;
   display:inline-block;
-  width:300em;
+  width:150em;
   text-indent:5px;
   font-weight:normal;
   max-width:inherit; /* to override bootstrap label max-width :100%*/

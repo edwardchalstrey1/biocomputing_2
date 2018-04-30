@@ -65,21 +65,7 @@ def highlight_coding_seq(complete_dna,cds):
         complete_dna=complete_dna[:end-1]+']'+complete_dna[end-1:]
     
     return(complete_dna)
-def highlight_original(dna):
-    """ This function is written to keep the alignment same for both ,highighted dna and original dna in the browsers . As in the highlight(dna),it replaces the delimeter by 
-    <mark> so it is rendered as highlighted region on the webpage. Here while highlighting, the background color is kept white
-    >>> hilite("abc[def]ghi[jkl]")
-    'abc<mark class= \"highlight\">def</mark>ghi<mark class= \"highlight\">jkl</mark>'
-    """
-    
-    #high_dna=dna.replace("[","<span class= \"highlight-original\">")
-    high_dna=dna.replace("[","<mark class= \"highlight-original\">")
-    #high_dna=high_dna.replace("]","</mark>")
-    high_dna=high_dna.replace("]","</mark>")
-    #p=re.compile(r'[AGTC]')
-    #high_dna=p.sub('-',high_dna)
-    
-    return(high_dna)    
+ 
 def hilight(dna):
     """ This function replaces the delimeter by <mark> so it is rendered as highlighted
     region on the webpage 
@@ -160,10 +146,7 @@ def hilite_dash(dna):
     high_res_dna=high_res_dna.replace("2","</mark>")
     return(high_res_dna)   
   
-#p=re.compile(r'[a-zA-Z]')
-#match=p.sub('-','fdfdfdf[fdfdfdf]fdfdfdfdf')
-#print(match)
-#print(check_res_enzyme('BsuMI',[[8,10],[20,22]],{'BamHI': [[1, 6], [29,32]], 'EcoRI': [[3,7], [10, 15]], 'BsuMI': [[2, 6], [7, 9]]})) 
+
 ######## Test Function ####
 
 if __name__ == "__main__":

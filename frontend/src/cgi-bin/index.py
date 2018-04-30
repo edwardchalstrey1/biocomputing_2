@@ -70,6 +70,9 @@ html+="<div class='container'>\n"
 html+="<div class='row'>\n"
 html+="<section class='titlebox'>"
 html+="<h1 class=center> Group 1 : Chromosome 18 </h1>\n"
+html+="<p class='center'> This is a simple genome browser to look at the genes in Human chromosome 18 .The information displayed is based on the human genomic DNA records from  Genbank .</p>"
+html+="<p class='center'>From the drop down lists please select either the Gene Name, Protein Product Name, Genbank Accession or Chromosomal Location to find out more information</p>\n"
+
 html+="</section>"
 html+="</div>"
 html+="</div>"
@@ -91,7 +94,7 @@ html+="</select>\n"
 html+="</div>\n"
 
 html+="<div class='col-sm-3' id='div-gene-info' class='dropdown'>\n"
-html+="<h4> Accession </h4>\n"
+html+="<h4> Genbank Accession </h4>\n"
 html+="<select name='Accession' id='accid' onClick=disable(id)>\n" 
    
 for acc in acc_list:
@@ -101,7 +104,7 @@ html+="</select>\n"
 html+="</div>\n"
 
 html+="<div class='col-sm-3' id='div-gene-info' class='dropdown'>\n"
-html+="<h4> Protein id </h4>\n"
+html+="<h4> Protein Product Name </h4>\n"
 html+="<select name='Protein' id='protid' onClick=disable(id)>\n" 
    
 for prot in prot_list:
@@ -110,7 +113,7 @@ for prot in prot_list:
 html+="</select>\n"
 html+="</div>\n"
 html+="<div class='col-sm-3' id='div-gene-info' class='dropdown'>\n"
-html+="<h4> Location </h4>\n"
+html+="<h4> Chromosomal Location </h4>\n"
 html+="<select name='Location' id='locid' onClick=disable(id)>\n" 
    
 for loc in loc_list:
@@ -132,9 +135,15 @@ html+="</div>\n"
 html+="</div>\n"
 html+="</div>\n"
 html+="</form>"
-html+="<div class='footer'> Group : 1 Chromosome: 18 </div>"
+html+="<footer class='footer'>"
+html+="<p>Group : 1 Chromosome: 18 </p>"
 html+="<script type='text/javascript' src='/frontend/WWW/js/lastmodified.js'></script>\n"
-html+="</div>"
+html+="<script type='text/javascript' src='/frontend/WWW/js/email.js'></script>\n"
+
+
+html+=" </footer>"
+
+
 html += "<script type='text/javascript' src='/frontend/WWW/js/biocw.js'></script>\n"
 
 html += "</body>\n"

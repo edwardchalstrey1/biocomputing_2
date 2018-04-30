@@ -77,26 +77,7 @@ function enable(){
 			
 }
 
-/*function showElement(element)
-{
-   document.getElementById(element).style.display = 'block';
-}
-function hideElement(element)
-{
-   document.getElementById(element).style.display = 'none';
-}
 
-function toggleElement(element)
-{
-   if(document.getElementById(element).style.display == 'none')
-   {
-      showElement(element);
-   }
-   else
-   {
-	   hideElement(element);
-   }
-}*/
 
 /* After loading the index.html page , this function directs it to the index.py */   
 function loadIndex() {
@@ -127,23 +108,7 @@ for (i = 0; i < acc.length; i++) {
 }
 
 
-/*Hide email : */
 
-function printem(name, domainName, character)
-{
-   var emAddress = name + "@" + domainName;
-   
-   emAddress = emAddress.replace(RegExp(character, "g"), ".");
-   /* alert(emAddress); */
-   
-   document.write("<span class='em'>");
-   document.write("<a href='mailto:" + emAddress +"'>" + emAddress + "</a>");
-   document.writeln("</span>");
-}
-
-
-
-	
 
 
                       
