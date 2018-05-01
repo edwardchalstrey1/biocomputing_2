@@ -146,11 +146,11 @@ html+="<meta name='viewport' content='width=device-width, initial-scale=1.0'>\n"
 
 
 html+="<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>\n"
-html+="<script src='/frontend/WWW/js/bootstrap.min.js'></script>\n"
-html+="<link rel='stylesheet' href='/frontend/WWW/css/bootstrap.min.css'></script>\n"
+html+="<script src='/frontend/src/html/js/bootstrap.min.js'></script>\n"
+html+="<link rel='stylesheet' href='/frontend/src/html/css/bootstrap.min.css'></script>\n"
 html+="<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js'></script>"
 
-html+="<link rel='stylesheet'  type='text/css'  href='/frontend/WWW/css/style.css'/>\n"
+html+="<link rel='stylesheet'  type='text/css'  href='/frontend/src/html/css/style.css'/>\n"
 html+="</head>\n"
 html+="<body ng-app=''>\n"  # Angular JS functionality to display restriction enzyme cut sites as per the user input
 html+="<table name='GeneIntro'>"
@@ -423,13 +423,13 @@ html+="</div>" # wrapper
 
 html+="<footer class='footer'>"
 html+="<p>Group : 1 Chromosome: 18 </p>"
-html+="<script type='text/javascript' src='/frontend/WWW/js/lastmodified.js'></script>\n"
+html+="<script type='text/javascript' src='/frontend/src/html/js/lastmodified.js'></script>\n"
 html+="<script type='text/javascript' src='/frontend/WWW/js/email.js'></script>\n"
 
 
 html+=" </footer>"
-html+="<script type='text/javascript' src='/frontend/WWW/js/jquery.js'></script>\n"
-html+="<script type='text/javascript' src='/frontend/WWW/js/biocw.js'></script>\n"
+html+="<script type='text/javascript' src='/frontend/src/html/js/jquery.js'></script>\n"
+html+="<script type='text/javascript' src='/frontend/src/html/js/biocw.js'></script>\n"
 
 html+="</body>\n"
 
