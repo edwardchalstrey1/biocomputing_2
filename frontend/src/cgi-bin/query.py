@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/local/bin/python3
 
 
 """ 
@@ -86,7 +86,8 @@ amino_acid=gene_dict['aa']
 cds=gene_dict['cds']
 res_site=gene_dict['restriction_sites']
 gene_codon_dict=gene_dict['table_data']  
-    
+accession=gene_dict['acc']   
+location =gene_dict['loc']
 
 #******************************************************************
 #*** Codon frequency table for the gene and entire chromosome******
@@ -177,6 +178,26 @@ html+="</td>"
 html+="</tr>"
 html+="<tr>"
 html+="<th>"
+html+="<p> Accession Number </p>"
+html+="</th>"
+html+="<td>"
+html+="<pre>"
+html+=accession
+html+="</pre>"
+html+="</td>"
+html+="</tr>"
+html+="<tr>"
+html+="<th>"
+html+="<p> Chromosomal Location </p>"
+html+="</th>"
+html+="<td>"
+html+="<pre>"
+html+=location
+html+="</pre>"
+html+="</td>"
+html+="</tr>"
+html+="<tr>"
+html+="<th>"
 html+="<p> Coding Region Co-ordinates : </p>"
 html+="</th>"
 html+="<td>"
@@ -195,7 +216,7 @@ html+="</table>"
 
 html+="<table name='GeneDetailInfo'>" # Table to display dna sequences
 html+="<tr>"
-html+="<td class='firstcol'>"
+html+="<th class='firstcol'>"
 html+="<br>"
 html+="<br>"
 html+="<p>Approximate Indicator Scale for Coding Region</p>\n"
@@ -219,7 +240,7 @@ html+="<br>"
 html+="<br>"
 html+="<br>"
 html+="<br>"
-html+="</td>"
+html+="</th>"
 html+="<td> " # second column
 html+="<div class='scroll'>" # div to scroll
 html+="<div class='child'>" # child for label
@@ -267,7 +288,7 @@ html+="</tr>"
 html+="</table>"
 html+="<table>"
 html+="<tr>"
-html+="<td class='firstcol'>"
+html+="<th class='firstcol'>"
 html+="<p> The coding sequence:</p>\n"
 html+="<br>"
 html+="<br>"
@@ -276,7 +297,7 @@ html+="<p> The Peptide Chain: </p>\n"
 html+="<br>"
 html+="<br>"
 
-html+="</td>"
+html+="</th>"
 html+="<td>"
 html+="<div class='scroll'>"    # div to scroll
 
@@ -424,7 +445,7 @@ html+="</div>" # wrapper
 html+="<footer class='footer'>"
 html+="<p>Group : 1 Chromosome: 18 </p>"
 html+="<script type='text/javascript' src='/frontend/src/html/js/lastmodified.js'></script>\n"
-html+="<script type='text/javascript' src='/frontend/WWW/js/email.js'></script>\n"
+html+="<script type='text/javascript' src='/frontend/src/html/js/email.js'></script>\n"
 
 
 html+=" </footer>"
