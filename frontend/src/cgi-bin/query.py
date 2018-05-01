@@ -424,7 +424,7 @@ html+="</div>" # wrapper
 html+="<footer class='footer'>"
 html+="<p>Group : 1 Chromosome: 18 </p>"
 html+="<script type='text/javascript' src='/frontend/src/html/js/lastmodified.js'></script>\n"
-html+="<script type='text/javascript' src='/frontend/WWW/js/email.js'></script>\n"
+html+="<script type='text/javascript' src='/frontend/src/html/js/email.js'></script>\n"
 
 
 html+=" </footer>"
