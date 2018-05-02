@@ -10,10 +10,13 @@ The front end is developed to display the detailed information about the genes o
 #### Requirements:  A server set-up, python 3
 
 #### File structure:
-Server’s WWW folder --> index.html
 
-	  		 css-->stylesheets
-						             j
+
+
+	Server’s WWW folder --> index.html
+			 
+			 css-->stylesheets
+						            
 			 js-->JavaScript and jQuery files
 			 
 	CGI-Bin folder-->CGI scripts
@@ -85,6 +88,9 @@ This JavaScript file contains functions like enable() which resets the dropdown 
 
 #### jQuery.js:
 This jQuery file has a document.ready event which scans the codon frequency and chromosome codon frequency table for the most overused and least overused codons and highlights the corresponding parent column with help of two more functions-findMaxVal() and findMinVal()
+
+#### Lastmodified.js:
+This jQuery function uses the HTML DOM's lastmodified property. 
 
 
 
