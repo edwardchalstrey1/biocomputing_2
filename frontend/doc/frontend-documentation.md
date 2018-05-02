@@ -40,12 +40,18 @@ Based on the input, the function `get_entries(gene=gene, prot=prot, acc=acc, loc
 get_entries() returns a dictionary which has stored the information  for the respective entry. 
 
 The gene dictionary gives 
-•	gene name, 
+•	gene name
+
 •	protein product
+
 -	Accession Number
+
 -	Chromosomal Location
+
 •	coding co-ordinates 
+
 •	amino acid for the coding region
+
 •	restriction enzyme cut sites for the enzymes (EcoRI,BamHI and BsuMI) and codon frequency dictionary 
 
 
