@@ -28,11 +28,12 @@ The front end is developed to display the detailed information about the genes o
 This page loads from the local server’s WWW folder. After loading it calls a function called `loadindex()` 
 from the JavaScript file to load index.py
 
-### Python function file used from the Middle Layer	
+### Python function file used from the Middle Layer/Business Logic tier	
 Business_rules.py
 
 #### Index.py
    Following functions are used from business_rules.py
+   
 •	`get_gene_list()`
 
 •	`get_genbank_accesion_list()`
@@ -51,19 +52,19 @@ Based on the input, the function `get_entries(gene=gene, prot=prot, acc=acc, loc
 get_entries() returns a dictionary which has stored the information  for the respective entry. 
 
 The gene dictionary gives 
--	gene name
+-	Gene name
 
--	protein product
+-	Protein product
 
 -	Accession Number
 
 -	Chromosomal Location
 
--	coding co-ordinates 
+-	Coding region co-ordinates 
 
--	amino acid for the coding region
+-	Amino acid for the coding region
 
--	restriction enzyme cut sites for the enzymes (EcoRI,BamHI and BsuMI) and codon frequency dictionary 
+-	Restriction enzyme cut sites for the enzymes (EcoRI,BamHI and BsuMI) and codon frequency dictionary 
 
 
 #### Restriction enzyme site functionality
@@ -71,7 +72,7 @@ AngularJs `ng-switch` API directive is used where it chooses one of the nested e
 
 
 #### Functions.py 
-This function file is written for the frontend to achieve following functionalities.
+This function file is written for the frontend to achieve following functionalities:
 
 ##### Highlight coding region
 Following 2 functions are written.
