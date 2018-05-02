@@ -36,19 +36,21 @@ After the user selects the values then the form is submitted with `post` method 
 #### query.py
 
 Using the method `cgi.FieldStorage()` , the values from the form are stored into variables. 
-Based on the input, the function `get_entries()` from business_rules is accessed. 
+Based on the input, the function `get_entries(gene=gene, prot=prot, acc=acc, loc=loc)` from business_rules is accessed. 
 get_entries() returns a dictionary which has stored the information  for the respective entry. 
 
 The gene dictionary gives 
 •	gene name, 
 •	protein product
+-	Accession Number
+-	Chromosomal Location
 •	coding co-ordinates 
 •	amino acid for the coding region
 •	restriction enzyme cut sites for the enzymes (EcoRI,BamHI and BsuMI) and codon frequency dictionary 
 
 
 #### Restriction enzyme site functionality
-AngularJs `ng-switch` API directive is used so that user can select the restriction enzymes with the help of radio buttons and find if they cut within or outside the coding region.
+AngularJs `ng-switch` API directive is used where it chooses one of the nested elements and makes it visible based on the which element matches the value from evaluated expression.Here the user can select the restriction enzymes with the help of radio buttons and find if they cut within or outside the coding region. The restriction enzyme sites are highlighted only if they cut outside the coding region. This is checked by `check_res_enzyme()` function from functions.py file.
 
 
 #### Functions.py 
