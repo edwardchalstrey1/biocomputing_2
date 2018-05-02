@@ -94,4 +94,5 @@ This jQuery file has a document.ready event which scans the codon frequency and 
 This jQuery function uses the HTML DOM's lastmodified property. 
 
 
-
+#### Query String:
+[http://student.cryst.bbk.ac.uk/cgi-bin/cgiwrap/gt002/query.py?Gene=VPS4B&Protein=vacuolar%20protein%20sorting%20factor%204b&Accession=AF282904&Location=18q21-q22]
