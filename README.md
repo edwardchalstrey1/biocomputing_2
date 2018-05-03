@@ -11,7 +11,7 @@ Biocomputing 2 project for Birkbeck MSc
 
   Name: Edward Chalstrey
   
-  Email:
+  Email: edwardchalstrey@gmail.com
   
 #### Web Front End
 
