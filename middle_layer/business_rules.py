@@ -2,7 +2,9 @@
 
 """ Middle layer: Business logic, all code by Ed Chalstrey """
 
-import dummy_data as dd # for use until the database layer functions become available
+import dummy_data as dd # for use until the database layer functions become available.
+
+# All functions from the dummy data module have the same names as expected functions from the database python wrapper.
 
 ########################
 ### Global vaiables: ###

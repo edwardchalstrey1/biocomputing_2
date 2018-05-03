@@ -1,10 +1,110 @@
-#!/usr/bin/env python3
+ #!/usr/bin/env python3
 
 """ Dummy data for use by middle layer whilst database layer unavailable - all code by Ed Chalstrey """
 
+########################
+### Global vaiables: ###
+########################
+
+dna_codon_to_amino_acid_dict = {
+
+	'TTT': 'F',
+	'TTC': 'F',
+
+	'TTA': 'L',
+	'TTG': 'L',
+	'CTT': 'L',
+	'CTC': 'L',
+	'CTA': 'L',
+	'CTG': 'L',
+
+	'ATT': 'I',
+	'ATC': 'I',
+	'ATA': 'I',
+
+	'ATG': 'M',
+
+	'GTT': 'V',
+	'GTC': 'V',
+	'GTA': 'V',
+	'GTG': 'V',
+
+	'TCT': 'S',
+	'TCC': 'S',
+	'TCA': 'S',
+	'TCG': 'S',
+
+	'CCT': 'P',
+	'CCC': 'P',
+	'CCA': 'P',
+	'CCG': 'P',
+
+	'ACT': 'T',
+	'ACC': 'T',
+	'ACA': 'T',
+	'ACG': 'T',
+
+	'GCT': 'A',
+	'GCC': 'A',
+	'GCA': 'A',
+	'GCG': 'A',
+
+	'TAT': 'Y',
+	'TAC': 'Y',
+
+	'TAA': 'Stop',
+	'TAG': 'Stop',
+	'TGA': 'Stop',
+
+	'CAT': 'H',
+	'CAC': 'H',
+
+	'CAA': 'Q',
+	'CAG': 'Q',
+
+	'AAT': 'N',
+	'AAC': 'N',
+
+	'AAA': 'K',
+	'AAG': 'K',
+
+	'GAT': 'D',
+	'GAC': 'D',
+
+	'GAA': 'E',
+	'GAG': 'E',
+
+	'TGT': 'C',
+	'TGC': 'C',
+
+	'TGG': 'W',
+
+	'CGT': 'R',
+	'CGC': 'R',
+	'CGA': 'R',
+	'CGG': 'R',
+	'AGA': 'R',
+	'AGG': 'R',
+
+	'AGT': 'S',
+	'AGC': 'S',
+
+	'GGT': 'G',
+	'GGC': 'G',
+	'GGA': 'G',
+	'GGG': 'G'
+
+}
+
+#######################
+### Dummy functions ###
+#######################
+
 def get_entries(gene=None, prot=None, acc=None, loc=None, all=False):
 
-	""" Should return a list of dictionaries. Each dict contains the gene, protein product, accession, location, CDS, DNA seq and AA seq """
+	""" Returns a list of dictionaries. Each dict contains the gene, protein product, accession, location, coding region coordinates,
+		DNA sequence and amino acid sequence copied from a genbank gene entry/record. The 4th dummy gene is just made up data.
+		This simulates the data that would be retrieved from the database, for a givem gene, protein, accession or location query."""
 
 	entries = []
 
@@ -102,111 +202,31 @@ def get_entries(gene=None, prot=None, acc=None, loc=None, all=False):
 
 def get_gene_list():
 
+	""" Returns a list of gene names, simulating the list of genes stored in the database (one per genbank entry/record) """
+
 	return(['VPS4B', 'SCCA1', 'SMAD4', 'FAKE_GENE'])
 
 def get_protein_product_list():
+
+	""" Returns a list of protein products, simulating the list of protein products stored in the database (one per genbank entry/record) """
 
 	return(['vacuolar protein sorting factor 4B', 'squamous cell carcinoma antigen 1', 'SMAD4', 'FAKE_PROTEIN'])
 
 def get_genbank_accession_list():
 
+	""" Returns a list of genbank accessions, simulating the list of accessions stored in the database (one per genbank entry/record) """
+
 	return(['AF282904', 'AB034984.1', 'AB043547', 'FAKE_ACCESSION'])
 
 def get_chromosomal_location_list():
 
+	""" Returns a list of chromosomal locations, simulating the list of chromosomal locations stored in the database (one per genbank entry/record) """
+
 	return(['18q21-q22', '18q21.3', '18q21', 'FAKE_LOCATION'])
 
-dna_codon_to_amino_acid_dict = {
-
-	'TTT': 'F',
-	'TTC': 'F',
-
-	'TTA': 'L',
-	'TTG': 'L',
-	'CTT': 'L',
-	'CTC': 'L',
-	'CTA': 'L',
-	'CTG': 'L',
-
-	'ATT': 'I',
-	'ATC': 'I',
-	'ATA': 'I',
-
-	'ATG': 'M',
-
-	'GTT': 'V',
-	'GTC': 'V',
-	'GTA': 'V',
-	'GTG': 'V',
-
-	'TCT': 'S',
-	'TCC': 'S',
-	'TCA': 'S',
-	'TCG': 'S',
-
-	'CCT': 'P',
-	'CCC': 'P',
-	'CCA': 'P',
-	'CCG': 'P',
-
-	'ACT': 'T',
-	'ACC': 'T',
-	'ACA': 'T',
-	'ACG': 'T',
-
-	'GCT': 'A',
-	'GCC': 'A',
-	'GCA': 'A',
-	'GCG': 'A',
-
-	'TAT': 'Y',
-	'TAC': 'Y',
-
-	'TAA': 'Stop',
-	'TAG': 'Stop',
-	'TGA': 'Stop',
-
-	'CAT': 'H',
-	'CAC': 'H',
-
-	'CAA': 'Q',
-	'CAG': 'Q',
-
-	'AAT': 'N',
-	'AAC': 'N',
-
-	'AAA': 'K',
-	'AAG': 'K',
-
-	'GAT': 'D',
-	'GAC': 'D',
-
-	'GAA': 'E',
-	'GAG': 'E',
-
-	'TGT': 'C',
-	'TGC': 'C',
-
-	'TGG': 'W',
-
-	'CGT': 'R',
-	'CGC': 'R',
-	'CGA': 'R',
-	'CGG': 'R',
-	'AGA': 'R',
-	'AGG': 'R',
-
-	'AGT': 'S',
-	'AGC': 'S',
-
-	'GGT': 'G',
-	'GGC': 'G',
-	'GGA': 'G',
-	'GGG': 'G'
-
-}
-
 def get_table_data_entire_chromosome():
+
+	""" Returns dummy codon usage table data, simulating what would be pulled from the database for the entire chromosome 18 """
 
 	import random
 	import business_rules as br
