@@ -2,7 +2,6 @@
 
 File:       style.css
 
-Version:    V1
             
 Date:       27/03/18
 
@@ -15,11 +14,6 @@ Address:    Msc Bioinformatics with Systems Biology (First Year)
             Birkbeck,University of London
             London WC1E 7HX
 
-----------------------------------------------------------------------------------------------------------
-
-This programme is released under the GNU Public Licence (GPL V3)
-
-----------------------------------------------------------------------------------------------------------
 
 Description:
 ------------
@@ -27,9 +21,7 @@ Description:
 This style.css styles different html elements.
 
 -----------------------------------------------------------------------------------------------------------
-Revision History:
------------------
-V1    24/04/18        Original    By: TG 	Previous versions not tracked  
+ 
 */
 header
 	{
@@ -99,6 +91,7 @@ pre {
 font-size: 100%;
 
 }
+
 p{font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 font-size: 100%;
 }
@@ -221,10 +214,10 @@ input[type="reset"] {
 
 /* Ruler Scale : reference https://codepen.io/cfenzo/pen/jEGQGm*/
 label {
-  font-size:100%;
+  font-size:80%;
   padding-top:2px;
   display:inline-block;
-  width:150em;
+  width:60em;
   text-indent:5px;
   font-weight:normal;
   max-width:inherit; /* to override bootstrap label max-width :100%*/
@@ -251,7 +244,7 @@ th,td{
 	width:25%;
 }
 tr:hover{
-	background-color:#ffffe6;
+	background-color:#fffffa;
 }
 /*tr:nth-child(even){
 	background-color:#f2f2f2;
@@ -269,9 +262,11 @@ tr:hover{
 }
 
 .underused {
-  background: #ffd6cc;
+  background: #85929E;
 }
-
+.rare{
+	background:#cb4335;
+}
 .footer {
     /*position: fixed;*/
     left: 0;

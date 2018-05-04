@@ -1,8 +1,6 @@
 /* Programme:  jquery
 
 File:       biocw.js
-
-Version:    V1.2
             
 Date:       24/04/18
 
@@ -15,11 +13,6 @@ Address:    Msc Bioinformatics with Systems Biology (First Year)
             Birkbeck,University of London
             London WC1E 7HX
 
-----------------------------------------------------------------------------------------------------------
-
-This programme is released under the GNU Public Licence (GPL V3)
-
-----------------------------------------------------------------------------------------------------------
 
 Description:
 ------------
@@ -28,11 +21,7 @@ This javascript function files has functions such as enable(),disable() to enabl
 elements and an accordian function.
 
 -----------------------------------------------------------------------------------------------------------
-Revision History:
------------------
-V1      10/04/18        Original    By: TG  
-V1.1    20/04/18		Added switch statement
-V1.2	24/04/18		Accordian
+
 */
 
 /*  This function disbles  the submit button and rest of the dropdown lists based on the selection */

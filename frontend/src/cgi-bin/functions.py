@@ -4,8 +4,6 @@
 """ 
 Programme:  Python Functions
 File:       functions.py
-
-Version:    V1 Original
             
 Date:       12/04/18
 Function:   Get Gene information for Chromosome 18 from index.cgi, process and display
@@ -17,11 +15,6 @@ Address:    Msc Bioinformatics with Systems Biology (First Year)
             Birkbeck,University of London
             London WC1E 7HX
 
-----------------------------------------------------------------------------------------------------------
-
-This programme is released under the GNU Public Licence (GPL V3)
-
-----------------------------------------------------------------------------------------------------------
 
 Description:
 ------------
@@ -29,10 +22,6 @@ Description:
 This programme is has functions which are used in query.py file.
 
 -----------------------------------------------------------------------------------------------------------
-Revision History:
------------------
-V7      12/04/18        Original    By: TG  Previous versions are not tracked.
-V7.1    28/04/18        Added 
 
 """
 
@@ -141,11 +130,7 @@ def check_res_enzyme(res_enzyme,cds,res_site):
                 resflag='True'
     return(resflag)        
 
-def hilite_dash(dna):
-    high_res_dna=dna.replace("1","<mark class= \"highlight_res\">")
-    high_res_dna=high_res_dna.replace("2","</mark>")
-    return(high_res_dna)   
-  
+
 
 ######## Test Function ####
 

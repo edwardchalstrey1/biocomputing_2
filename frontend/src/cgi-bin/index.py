@@ -2,7 +2,6 @@
 """ 
 Programme:  Index
 File:       index.py
-
 Version:    V5
 Date:       12/04/18
 Function:   Get Gene information for Chromosome 18.
@@ -14,12 +13,6 @@ Address:    Msc Bioinformatics with Systems Biology (First Year)
             Birkbeck,University of London
             London WC1E 7HX
 
-----------------------------------------------------------------------------------------------------------
-
-This programme is released under the GNU Public Licence (GPL V3)
-
-----------------------------------------------------------------------------------------------------------
-
 Description:
 ------------
 
@@ -27,9 +20,7 @@ This programme accepts a Gene id or Location or Accession Number or Protein name
 on Chromosome 18.
 
 -----------------------------------------------------------------------------------------------------------
-Revision History:
------------------
-V5  12/04/18    Original    By: TG  
+
 
 """
 #***********************************************

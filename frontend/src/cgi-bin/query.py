@@ -4,10 +4,6 @@
 """ 
 Programme:  Query CGI script
 File:       query.py
-
-Version:    V7...
-            V7.1        Changed gene dict part
-            V7.2        Added pre tag and changed label
             
 Date:       12/04/18
 Function:   Get Gene information for Chromosome 18 from index.cgi, process and display
@@ -19,12 +15,6 @@ Address:    Msc Bioinformatics with Systems Biology (First Year)
             Birkbeck,University of London
             London WC1E 7HX
 
-----------------------------------------------------------------------------------------------------------
-
-This programme is released under the GNU Public Licence (GPL V3)
-
-----------------------------------------------------------------------------------------------------------
-
 Description:
 ------------
 
@@ -33,11 +23,7 @@ on Chromosome 18 from index.cgi. After accepting the values it accesses the midd
 queries the database and passes the information back to this programme to display on the webpage.
 
 -----------------------------------------------------------------------------------------------------------
-Revision History:
------------------
-V7      12/04/18        Original    By: TG  Previous versions are not tracked.
-V8      13/04/18        Added Codon Table
-V8.1    16/04/18        Codon list from function
+
 
 """
 
@@ -224,17 +210,20 @@ html+="<br>"
 html+="<br>"
 html+="<br>"
 
-html+="<p> Highlighted coding region: </p>\n"
+html+="<p> Highlighted Coding Region: </p>\n"
 html+="<br>"
 html+="<br>"
-html+="<br>"
-html+="<br>"
-html+="<p> " 'Select Restriction Enzyme to check' "</p>\n"
 
+html+="<p> " 'Select Restriction Enzyme to Identify the Restriction Sites' "</p>\n"
+html+="<br>"
 html+="<form>"
 html+="<input type='radio' ng-model='myVar' value='bm'>BamHI"
 html+="<input type='radio' ng-model='myVar' value='bs'>BsuMI"
 html+="<input type='radio' ng-model='myVar' value='ec'>EcoRI"  
+html+="<br>"
+html+="<br>"
+html+="<br>"
+html+="<p> " 'Restriction Enzyme Cut Sites Co-ordinates' "</p>\n"  
 html+="</form>"
 html+="<br>"
 html+="<br>"
@@ -247,7 +236,7 @@ html+="<div class='child'>" # child for label
 
 while i<len(dna):
     html+="<label>" +str(i)+"</label>"
-    i+=250
+    i+=100
 
 html+="</div>"  # end label child
 
@@ -277,8 +266,6 @@ html+="<pre>"+str(res_site['EcoRI'])+"</pre>"
 html+="</div>"                      # third child div of angular ends
 
 html+="</div>"   # parent div of angular ends
-
-                   
 html+="</div>\n"                    # scroll div ends
 
 
@@ -289,7 +276,7 @@ html+="</table>"
 html+="<table>"
 html+="<tr>"
 html+="<th class='firstcol'>"
-html+="<p> The coding sequence:</p>\n"
+html+="<p> The Coding Sequence:</p>\n"
 html+="<br>"
 html+="<br>"
 html+="<br>"
@@ -341,7 +328,7 @@ html+="<th> Amino</th>"
 html+="<th> Frequency </th>"
 html+="<th> Ratio </th>"
 html+="</tr>"
-freqlist=[]
+#freqlist=[] to be removed
 for c in clist:
     html+="<tr>"
     html+="<td rowspan='65'>" +c+ "</td>"
@@ -362,7 +349,7 @@ html+="</table>"
 
 html+="</div>"  # columnn
 html+="<div class='col-sm-6'>"
-html+="<p> Chromosome: Codon Frequency Table </p>"  
+html+="<p> Chromosome: Codon Frequency Table (dummy data)</p>"  
 html+="<table border='1', style='border-collapse: collapse', id='codon_chrom_freq' >"
 html+="<tr>"
     
@@ -405,7 +392,7 @@ html+="<td class='firstcol'>"
 html+="<div class='tablekey overused'></div>"
 html+="</td>"
 html+="<td>"
-html+="<p> Overused Codons </p>"
+html+="<p> Overused Codons - The codon frequency more than 150% of the corresponding codon frequency in the Chromosome Codon Frequency Table</p>"
 html+="</td>"
 html+="</tr>"
 html+="<tr>"
@@ -413,7 +400,7 @@ html+="<td class='firstcol'>"
 html+="<div class='tablekey underused'></div>"
 html+="</td>"
 html+="<td>"
-html+="<p> Underused Codons </p>"
+html+="<p> Underused Codons - The codon frequency less than 50% of the corresponding codon frequency in the Chromosome Codon Frequency Table</p>"
 html+="</td>"
 html+="</tr>"
 html+="<tr>"
@@ -430,6 +417,14 @@ html+="<p> Ratio </p>"
 html+="</td>"
 html+="<td>"
 html+="<p> Abundance of that codon relative to all of the codons for that particular amino acid </p>"
+html+="</td>"
+html+="</tr>"
+html+="<tr>"
+html+="<td class='firstcol'>"
+html+="<div class='tablekey rare'></div>"
+html+="</td>"
+html+="<td>"
+html+="<p> Rare Codons - The codon frequency less than 0.50 in the entire chromomsome</p>"
 html+="</td>"
 html+="</tr>"
 html+="</table>"
