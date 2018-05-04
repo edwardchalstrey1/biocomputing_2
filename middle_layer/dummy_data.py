@@ -235,6 +235,8 @@ def get_table_data_entire_chromosome():
 
 	codon_dict = {}
 
+	random.seed(500)
+
 	for codon in codon_list:
 
 		codon_dict[codon] = random.randrange(0,1000)
