@@ -15,7 +15,7 @@ Address:    Msc Bioinformatics with Systems Biology (First Year)
 Ref: http://www.bioinf.org.uk/teaching/bbk/biocomp2/js/page02.html*/
 
 
-function printem(name, domainName, character)
+function printemail(name, domainName, character)
 			   {
 			      var emailAddress = name + "@" + domainName;
    
@@ -28,6 +28,6 @@ function printem(name, domainName, character)
 			   }
 
 
-			   printem("t.gore", "mail#cryst#bbk#uk", "#");
+			   printemail("t.gore", "mail#cryst#bbk#uk", "#");
 			   document.write("</br>");
-			   printem("edwardchalstrey","gmail#com","#");
+			   printemail("edwardchalstrey","gmail#com","#");
