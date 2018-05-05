@@ -61,11 +61,15 @@ h4{
 
 
 .highlight{
+	/*  Highlight coding region*/
 background-color: yellow;
 
 }
 
 .highlight_res{
+	/* highlight restriction enzyme sites */
+	
+
 background-color: #f4426b;
 
 }
@@ -94,6 +98,7 @@ font-size: 100%;
 
 p{font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 font-size: 100%;
+padding-top:10px;
 }
 
 .select-buttons {
@@ -111,10 +116,20 @@ overflow-x:scroll;
 white-space: nowrap;
 overflow-y:hidden;
 padding:0px;
+margin-left:25em;
 }
+.noscroll{
+	/* this is class is defined to match the styling of scroll class except scroll */
+	
 
+	max-width:500px; 
+	background-color:#ffFFFF;
+	white-space: nowrap;
+	padding:0px;
+	margin-left:25em;
+}
 .child{
-	height:100px;
+	height:120px;
 }
   
 .container{
@@ -214,10 +229,10 @@ input[type="reset"] {
 
 /* Ruler Scale : reference https://codepen.io/cfenzo/pen/jEGQGm*/
 label {
-  font-size:80%;
+  font-size:70%;
   padding-top:2px;
   display:inline-block;
-  width:60em;
+  width:85.6em;
   text-indent:5px;
   font-weight:normal;
   max-width:inherit; /* to override bootstrap label max-width :100%*/
@@ -231,18 +246,33 @@ label {
 table{
 	padding:10px;
 	border-collapse:collapse;
-	
+	display:table;
+	border-spacing:0;
 	
 	
 }
+.geneintro{
+	max-width:500px;
+}
 th,td{
-	/*width:100%;*/
+	
 	
 	padding:10px;
 }
 .firstcol{
-	width:25%;
+	
+     position: absolute;
+     width: 25em;             
+     left: 0;
+     top: auto;
+     border-top-width: 1px;
+     /*only relevant for first row*/
+     margin-top: -1px;
+	 padding-top:10px;
+     /*compensate for top border*/
+	
 }
+
 tr:hover{
 	background-color:#fffffa;
 }
@@ -264,7 +294,20 @@ tr:hover{
 .underused {
   background: #85929E;
 }
+.keyfirstcol{
+	/* for key table  */
+	
+
+	width: 10%;             
+	
+}
+
+	
+
 .rare{
+	/* rare codon */
+	
+
 	background:#cb4335;
 }
 .footer {

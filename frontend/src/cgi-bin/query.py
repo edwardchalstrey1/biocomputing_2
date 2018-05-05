@@ -59,8 +59,7 @@ res_enzyme=form.getvalue("Enzyme")
 #*******************************************
 #***** Access Gene information dictionary***
 #*******************************************
-#gene_dict=br.get_entries(gid,prot,acc,loc)  # Detailed information of the gene in a dictionary format
-#print(br.get_entries("VPS4B"))  
+ 
 gene_dict_list = br.get_entries(gid,prot,acc,loc)  
 
 gene_dict = gene_dict_list[0] # Detailed information of the gene in a dictionary format, only use the first entry found, we are assuming no duplicates in database
@@ -140,7 +139,11 @@ html+="<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angula
 html+="<link rel='stylesheet'  type='text/css'  href='/frontend/src/html/css/style.css'/>\n"
 html+="</head>\n"
 html+="<body ng-app=''>\n"  # Angular JS functionality to display restriction enzyme cut sites as per the user input
-html+="<table name='GeneIntro'>"
+html+="<section class='titlebox'>"
+html+="<h1 class=center> Gene Information Page</h1>\n"
+html+="</section>"
+html+="<div class='noscroll'>"
+html+="<table name='GeneIntro' class='geneintro'>"
 html+="<tr>"
 html+="<th class='firstcol'>"
 html+="<p> Name  </p>"
@@ -153,7 +156,7 @@ html+="</td>"
 html+="</tr>"
 html+="</tr>"
 html+="<tr>"
-html+="<th>"
+html+="<th class='firstcol'>"
 html+="<p> The protein </p>"
 html+="</th>"
 html+="<td>"
@@ -163,7 +166,7 @@ html+="</pre>"
 html+="</td>"
 html+="</tr>"
 html+="<tr>"
-html+="<th>"
+html+="<th class='firstcol'>"
 html+="<p> Accession Number </p>"
 html+="</th>"
 html+="<td>"
@@ -173,7 +176,7 @@ html+="</pre>"
 html+="</td>"
 html+="</tr>"
 html+="<tr>"
-html+="<th>"
+html+="<th class='firstcol'>"
 html+="<p> Chromosomal Location </p>"
 html+="</th>"
 html+="<td>"
@@ -183,7 +186,7 @@ html+="</pre>"
 html+="</td>"
 html+="</tr>"
 html+="<tr>"
-html+="<th>"
+html+="<th class='firstcol'>"
 html+="<p> Coding Region Co-ordinates : </p>"
 html+="</th>"
 html+="<td>"
@@ -191,65 +194,50 @@ html+="<td>"
 coding_coordinates=''
 for c in cds:
    coding_coordinates+=''.join('%s'%c)
-html+="<div class='scroll'>"
 html+="<pre>"
 html+=coding_coordinates
 html+="</pre>"
-html+="</div>"
 html+="</td>"
 html+="</tr>"
 html+="</table>"
-
+html+="</div>"
+html+="<div class='scroll'>" # scroll div starts
 html+="<table name='GeneDetailInfo'>" # Table to display dna sequences
 html+="<tr>"
 html+="<th class='firstcol'>"
-html+="<br>"
-html+="<br>"
+
 html+="<p>Approximate Indicator Scale for Coding Region</p>\n"
-html+="<br>"
-html+="<br>"
-html+="<br>"
-
-html+="<p> Highlighted Coding Region: </p>\n"
-html+="<br>"
-html+="<br>"
-
-html+="<p> " 'Select Restriction Enzyme to Identify the Restriction Sites' "</p>\n"
-html+="<br>"
-html+="<form>"
-html+="<input type='radio' ng-model='myVar' value='bm'>BamHI"
-html+="<input type='radio' ng-model='myVar' value='bs'>BsuMI"
-html+="<input type='radio' ng-model='myVar' value='ec'>EcoRI"  
-html+="<br>"
-html+="<br>"
-html+="<br>"
-html+="<p> " 'Restriction Enzyme Cut Sites Co-ordinates' "</p>\n"  
-html+="</form>"
-html+="<br>"
-html+="<br>"
-html+="<br>"
-html+="<br>"
 html+="</th>"
-html+="<td> " # second column
-html+="<div class='scroll'>" # div to scroll
-html+="<div class='child'>" # child for label
-
-while i<len(dna):
+html+="<td>"
+while i <= len(dna)-100:
+  
     html+="<label>" +str(i)+"</label>"
     i+=100
-
-html+="</div>"  # end label child
-
-
-html+="<div class='child'>\n"  #first child
+html+="</td>"
+html+="</tr>"
+html+="<tr>"
+html+="<th class='firstcol' align='center'>" # highlight
+html+="<p> Highlighted Coding Region: Scroll to view </p>\n"
+html+="</th>"
+html+="<td>"
 html+="<pre>\n"
 html+=coding_highlighted_dna 
 html+="</pre>\n"
-html+="</div>\n"            # end first child
-
-
-html+="<div id= 'res_dna' class='child'>\n" # thild child
-#html+="<div id='showHide' display = none'>\n"
+html+="</td>"
+html+="</tr>"
+html+="<tr>" # radio buttons
+html+="<th class='firstcol'>"
+html+="<p> " 'Select Restriction Enzyme to Identify the Restriction Sites' "</p>\n"
+html+="<form>"
+html+="<input type='radio' ng-model='myVar' value='bm'>BamHI"
+html+="<input type='radio' ng-model='myVar' value='bs'>BsuMI"
+html+="<input type='radio' ng-model='myVar' value='ec'>EcoRI" 
+html+="</br>"
+html+="<p> " 'Restriction Enzyme Cut Sites Co-ordinates' "</p>\n" 
+html+="</form>"
+html+="</th>"
+html+="<td>"
+html+="<div class='child'>" # placeholder child
 html+="<div ng-switch='myVar'>"  # parent div of angular.    AngularJS code reference: https://www.w3schools.com/angular/tryit.asp?filename=try_ng_form_radio
 html+="<div ng-switch-when='bm'>" # first child div of angular
 html+="<pre>" + enzdict['BamHI'] +"</pre>" 
@@ -266,49 +254,38 @@ html+="<pre>"+str(res_site['EcoRI'])+"</pre>"
 html+="</div>"                      # third child div of angular ends
 
 html+="</div>"   # parent div of angular ends
-html+="</div>\n"                    # scroll div ends
-
-
-
+html+="</div>" # place holder child
 html+="</td>"
 html+="</tr>"
+
 html+="</table>"
+html+="</div>" # scroll finishes
+html+="<div class='scroll'>"    # div to scroll
 html+="<table>"
 html+="<tr>"
 html+="<th class='firstcol'>"
 html+="<p> The Coding Sequence:</p>\n"
-html+="<br>"
-html+="<br>"
-html+="<br>"
-html+="<p> The Peptide Chain: </p>\n"
-html+="<br>"
-html+="<br>"
-
 html+="</th>"
 html+="<td>"
-html+="<div class='scroll'>"    # div to scroll
-
-html+="<div id=class='child'>\n" # first child
-#html+="<br>"
 html+="<pre class='display'>\n"
 html+=  coding_sequence 
-html+="</pre>\n"                    # first child ends
-html+="</div>"
-html+="<br>"
-
-html+="<div class='child'>\n" # second child
+html+="</pre>\n"    
+html+="</td>"
+html+="</tr>"
+html+="<tr>"
+html+="<th class='firstcol'>"
+html+="<p> The Peptide Chain: </p>\n"
+html+="</th>"
+html+="<td>"
 html+="<pre class='display'>\n"
 html+=aligned_amino_acid
 
 html+="</pre>\n"
 
-html+="</div>"              # second child ends
-
-html+="</div>"              # scroll div ends
 html+="</td>"
 html+="</tr>"
 html+="</table>"
-
+html+="</div>"
 html+="<br>"
 #******* Create accordian to display codon table ***********. https://www.w3schools.com/howto/howto_js_accordion.asp
 
@@ -328,7 +305,6 @@ html+="<th> Amino</th>"
 html+="<th> Frequency </th>"
 html+="<th> Ratio </th>"
 html+="</tr>"
-#freqlist=[] to be removed
 for c in clist:
     html+="<tr>"
     html+="<td rowspan='65'>" +c+ "</td>"
@@ -384,11 +360,11 @@ html+="</br>"
 html+="<p> Table Keys</p>"
 html+="<table id='keys',border='1', style='border-collapse: collapse'>"
 html+="<tr>"
-html+="<th class='firstcol'> Key </th>"
+html+="<th class='keyfirstcol'> Key </th>"
 html+="<th> Meaning</th>"
 html+="</tr>"
 html+="<tr>"
-html+="<td class='firstcol'>"
+html+="<td class='keyfirstcol'>"
 html+="<div class='tablekey overused'></div>"
 html+="</td>"
 html+="<td>"
@@ -396,7 +372,7 @@ html+="<p> Overused Codons - The codon frequency more than 150% of the correspon
 html+="</td>"
 html+="</tr>"
 html+="<tr>"
-html+="<td class='firstcol'>"
+html+="<td class='keyfirstcol'>"
 html+="<div class='tablekey underused'></div>"
 html+="</td>"
 html+="<td>"
@@ -404,7 +380,15 @@ html+="<p> Underused Codons - The codon frequency less than 50% of the correspon
 html+="</td>"
 html+="</tr>"
 html+="<tr>"
-html+="<td class='firstcol'>"
+html+="<td class='keyfirstcol'>"
+html+="<div class='tablekey rare'></div>"
+html+="</td>"
+html+="<td>"
+html+="<p> Rare Codons - The codon frequency less than 0.50 in the entire chromomsome</p>"
+html+="</td>"
+html+="</tr>"
+html+="<tr>"
+html+="<td class='keyfirstcol'>"
 html+="<p> Frequency</p>"
 html+="</td>"
 html+="<td>"
@@ -412,19 +396,11 @@ html+="<p> Average frequency of this codon per 100 codons </p>"
 html+="</td>"
 html+="</tr>"
 html+="<tr>"
-html+="<td class='firstcol'>"
+html+="<td class='keyfirstcol'>"
 html+="<p> Ratio </p>"
 html+="</td>"
 html+="<td>"
 html+="<p> Abundance of that codon relative to all of the codons for that particular amino acid </p>"
-html+="</td>"
-html+="</tr>"
-html+="<tr>"
-html+="<td class='firstcol'>"
-html+="<div class='tablekey rare'></div>"
-html+="</td>"
-html+="<td>"
-html+="<p> Rare Codons - The codon frequency less than 0.50 in the entire chromomsome</p>"
 html+="</td>"
 html+="</tr>"
 html+="</table>"
