@@ -64,8 +64,6 @@ def hilight(dna):
     
     high_dna=dna.replace("[","<mark class= \"highlight\">")
     high_dna=high_dna.replace("]","</mark>")
-    #p=re.compile(r'[AGTC]')
-    #high_dna=p.sub('-',high_dna)
     
     return(high_dna)
 
