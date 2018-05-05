@@ -88,7 +88,10 @@ Same principle is used to highlight the restriction enzyme cut sites.
 This JavaScript file contains functions like enable() which resets the dropdown lists on the index.py , disable() which disables the other drop-down lists if one is selected, an event handler for accordion style display to display the codon frequency table.
 
 #### jQuery.js:
-This jQuery file has a document.ready event which scans the codon frequency and chromosome codon frequency table for the most overused and least overused codons and highlights the corresponding parent column with help of two more functions-findMaxVal() and findMinVal()
+This jQuery file has a document.ready event which scans the codon frequency and chromosome codon frequency table for the overused and least overused codons and highlights the corresponding parent column. 
+For the overused codons the criterion is : If the frequency of the said codon is 150% of the frequency of the same codon in the Chromosome Codon Frequency table then it is considered as an overused codon.
+For the underused codons the criterion is: If the frequency of the said codon is 50% of the frequency of the same codon in the Chromosome Codon Frequency table then it is considered as an underused codon.
+
 
 #### Lastmodified.js:
 This jQuery function uses the HTML DOM's lastmodified property. 
