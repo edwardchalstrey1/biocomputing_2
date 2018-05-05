@@ -86,6 +86,18 @@ This function file is written for the frontend to achieve following functionalit
 
 `check_res_enzymes()` : This function checks if the restriction enzyme cut sites fall within the coding region or not.
 
+## style.css
+
+This is an external css files which is written to style all html elements.
+
+#### semantic markup
+##### Document structure tags:
+
+** header ** , ** footer ** , ** section ** , ** form ** ,
+#### Textual meaning tags: 
+
+** h1, h4 ** , ** em ** , ** mark **
+
 ## BioCW.js:
 This JavaScript file contains following functions.
 
