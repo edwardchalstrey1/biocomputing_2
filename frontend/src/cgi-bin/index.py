@@ -17,7 +17,7 @@ Description:
 ------------
 
 This programme accepts a Gene id or Location or Accession Number or Protein name for the genes
-on Chromosome 18.
+on Chromosome 18. When the form is submitted then it calls another CGI script called query.py.
 
 -----------------------------------------------------------------------------------------------------------
 
