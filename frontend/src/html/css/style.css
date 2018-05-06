@@ -33,7 +33,7 @@ header
 
 body
 	{
-	background-color:#FFFFFF    ;
+	background-color:#ffffff;
 	}
 h1{
 font-family: "Raleway", sans-serif;
@@ -111,7 +111,7 @@ padding-top:10px;
 .scroll   /* Scroll class for horizontal scroll to display highlighted dna*/
 {
 max-width:980px; 
-background-color:#ffFFFF;
+background-color:#ffffff;
 overflow-x:scroll;
 white-space: nowrap;
 overflow-y:hidden;
