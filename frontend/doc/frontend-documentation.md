@@ -128,4 +128,4 @@ This jQuery function uses the HTML DOM's lastmodified property.
 
 
 #### Query String:
-http://student.cryst.bbk.ac.uk/cgi-bin/cgiwrap/gt002/query.py?Gene=`GeneName`&Protein=`ProteinName`&Accession=`<Accession>`&Location=`<ChromosomalLocation>`
+http://student.cryst.bbk.ac.uk/cgi-bin/cgiwrap/gt002/query.py?Gene=SMAD4&Protein=SMAD4&Accession=AB043547&Location=18q21
