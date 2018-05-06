@@ -28,6 +28,6 @@ function printemail(name, domainName, character)
 			   }
 
 
-			   printemail("t.gore", "mail#cryst#bbk#uk", "#");
+			   printemail("trupti_gore", "yahoo#com", "#");
 			   document.write("</br>");
 			   printemail("edwardchalstrey","gmail#com","#");
