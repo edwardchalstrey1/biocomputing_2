@@ -33,7 +33,7 @@ Business_rules.py
 
 ### Index.html: 
 This page loads from the local server’s WWW folder. After loading it calls a function called `loadindex()` 
-from the JavaScript file to load index.py
+from the JavaScript `biocw.js` file to load index.py
 
 ### Index.py
    Following functions are used from business_rules.py
@@ -72,7 +72,7 @@ The gene dictionary gives
 
 
 #### Restriction enzyme site functionality
-AngularJs `ng-switch` API directive is used where it chooses one of the nested elements and makes it visible based on the which element matches the value from evaluated expression.Here the user can select the restriction enzymes with the help of radio buttons and find if they cut within or outside the coding region. The restriction enzyme sites are highlighted only if they cut outside the coding region. This is checked by `check_res_enzyme()` function from functions.py file.
+AngularJs `ng-switch` API directive is used where it chooses one of the nested elements and makes it visible based on the which element matches the value from evaluated expression.Here the user can select the restriction enzymes with the help of radio buttons and find if they cut within or outside the coding region. The restriction enzyme sites are highlighted only if they cut outside the coding region. This is checked by `check_res_enzyme()` function from `functions.py` file.
 
 
 ## Functions.py 
@@ -116,6 +116,8 @@ Overused codons : If the frequency of the said codon is 150% of the frequency of
 
 Underused Codons : If the frequency of the said codon is 50% of the frequency of the same codon in the Chromosome Codon Frequency table then it is considered as an underused codon.
 
+Rare Codons : If the codon frequency in a gene is less than 0.50 then these are considered to be rare codons.
+
 ## email.js
 
 `printemail()` : Prints email in a format which is hidden from scrapping programmes.
@@ -126,4 +128,4 @@ This jQuery function uses the HTML DOM's lastmodified property.
 
 
 #### Query String:
-[http://student.cryst.bbk.ac.uk/cgi-bin/cgiwrap/gt002/query.py?Gene=VPS4B&Protein=vacuolar%20protein%20sorting%20factor%204b&Accession=AF282904&Location=18q21-q22]
+*http://student.cryst.bbk.ac.uk/cgi-bin/cgiwrap/gt002/query.py?Gene=<Gene Name>&Protein=<Protein Name>&Accession=<Accession>&Location=<Chromosomal Location>*
