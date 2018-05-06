@@ -1,6 +1,6 @@
-Front End Documentation:
+## Front End Documentation:
 
-Imp Notes: 
+#### Imp Notes: 
 The Shebang line might need to change from /usr/local/bin/python3 to /usr/bin/env python3 
 
 
