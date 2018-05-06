@@ -19,7 +19,7 @@ Address:    Msc Bioinformatics with Systems Biology (First Year)
 Description:
 ------------
 
-This programme is has functions which are used in query.py file.
+This programme has functions which are used in query.py file.
 
 -----------------------------------------------------------------------------------------------------------
 
