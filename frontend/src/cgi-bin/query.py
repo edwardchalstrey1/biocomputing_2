@@ -74,14 +74,12 @@ gene_codon_dict=gene_dict['table_data']
 accession=gene_dict['acc']   
 location =gene_dict['loc']
 
-#******************************************************************
+
 #*** Codon frequency table for the gene and entire chromosome******
-#******************************************************************
 
 chrom_codon_dict=br.get_table_data_entire_chromosome()
 
 #******* Get Coding Sequence*********
-
 
 coding_sequence=br.get_coding_seq(dna,cds)
 
@@ -91,7 +89,8 @@ for a in amino_acid:
     aligned_amino_acid += a + "  "
 aligned_amino_acid+='stop'
 #***************Highlight coding parts of the dna**************
-original_dna=dna
+original_dna=dna # store original dna in another variable for future use.
+
 dna=f.highlight_coding_seq(dna,cds)    
 coding_highlighted_dna=f.hilight(dna)
 
@@ -210,7 +209,6 @@ html+="<p>Approximate Indicator Scale</p>\n"
 html+="</th>"
 html+="<td>"
 while i <= len(dna)-100:
-  
     html+="<label>" +str(i)+"</label>"
     i+=100
 html+="</td>"
@@ -405,9 +403,6 @@ html+="</td>"
 html+="</tr>"
 html+="</table>"
 html+="</div>" # conainer
-
-
-
 html+="</div>" # panel
 html+="</div>" # wrapper
 
@@ -417,9 +412,8 @@ html+="<footer class='footer'>"
 html+="<p>Group : 1 Chromosome: 18 </p>"
 html+="<script type='text/javascript' src='/frontend/src/html/js/lastmodified.js'></script>\n"
 html+="<script type='text/javascript' src='/frontend/src/html/js/email.js'></script>\n"
-
-
 html+=" </footer>"
+
 html+="<script type='text/javascript' src='/frontend/src/html/js/jquery.js'></script>\n"
 html+="<script type='text/javascript' src='/frontend/src/html/js/biocw.js'></script>\n"
 
