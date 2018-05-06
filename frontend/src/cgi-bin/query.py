@@ -206,7 +206,7 @@ html+="<table name='GeneDetailInfo'>" # Table to display dna sequences
 html+="<tr>"
 html+="<th class='firstcol'>"
 
-html+="<p>Approximate Indicator Scale for Coding Region</p>\n"
+html+="<p>Approximate Indicator Scale</p>\n"
 html+="</th>"
 html+="<td>"
 while i <= len(dna)-100:
@@ -217,7 +217,7 @@ html+="</td>"
 html+="</tr>"
 html+="<tr>"
 html+="<th class='firstcol' align='center'>" # highlight
-html+="<p> Highlighted Coding Region: Scroll to view </p>\n"
+html+="<p> Highlighted Coding Region:Scroll to view </p>\n"
 html+="</th>"
 html+="<td>"
 html+="<pre>\n"
