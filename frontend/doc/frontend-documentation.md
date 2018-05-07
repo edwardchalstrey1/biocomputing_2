@@ -129,6 +129,4 @@ Rare Codons : If the codon frequency in Chromosome Codon Frequency table is less
 This jQuery function uses the HTML DOM's lastmodified property. 
 
 
-#### Query String:
-[http://student.cryst.bbk.ac.uk/cgi-bin/cgiwrap/gt002/query.py?Gene=SMAD4&Protein=SMAD4&Accession=AB043547&Location=18q21
-](http://student.cryst.bbk.ac.uk/cgi-bin/cgiwrap/gt002/query.py?Gene=SMAD4&Protein=SMAD4&Accession=AB043547&Location=18q21)
+
