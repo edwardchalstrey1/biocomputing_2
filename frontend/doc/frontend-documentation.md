@@ -73,7 +73,7 @@ The gene dictionary gives
 #### Restriction enzyme site functionality
 AngularJs `ng-switch` API directive is used where it chooses one of the nested elements and makes it visible based on the  element which matches the value from evaluated expression.Here the user can select the restriction enzymes with the help of radio buttons and find if they cut within or outside the coding region. The restriction enzyme sites are highlighted only if they cut outside the coding region. This is checked by `check_res_enzyme()` function from `functions.py` file.
 
-For the ease of navigation **Home** button has been provided to navigate back to index page.
+For the ease of navigation **Home** button has been provided to navigate back to the index page.
 
 
 ## Functions.py 
