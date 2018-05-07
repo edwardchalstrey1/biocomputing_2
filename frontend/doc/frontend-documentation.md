@@ -52,8 +52,7 @@ After the user selects the values then the form is submitted with `post` method 
 ### query.py
 
 Using the method `cgi.FieldStorage()` , the values from the form are stored into variables. 
-Based on the input, the function `get_entries(gene=gene, prot=prot, acc=acc, loc=loc)` from business_rules is accessed. 
-get_entries() returns a dictionary which has stored the information  for the respective entry. 
+These values are passed to the function `get_entries(gene=gene, prot=prot, acc=acc, loc=loc)` from business_rules which returns a gene dictionary with gene information for the respective entry. 
 
 The gene dictionary gives 
 -	Gene name
@@ -72,7 +71,7 @@ The gene dictionary gives
 
 
 #### Restriction enzyme site functionality
-AngularJs `ng-switch` API directive is used where it chooses one of the nested elements and makes it visible based on the which element matches the value from evaluated expression.Here the user can select the restriction enzymes with the help of radio buttons and find if they cut within or outside the coding region. The restriction enzyme sites are highlighted only if they cut outside the coding region. This is checked by `check_res_enzyme()` function from `functions.py` file.
+AngularJs `ng-switch` API directive is used where it chooses one of the nested elements and makes it visible based on the  element which matches the value from evaluated expression.Here the user can select the restriction enzymes with the help of radio buttons and find if they cut within or outside the coding region. The restriction enzyme sites are highlighted only if they cut outside the coding region. This is checked by `check_res_enzyme()` function from `functions.py` file.
 
 
 ## Functions.py 
@@ -88,7 +87,7 @@ This function file is written for the frontend to achieve following functionalit
 
 ## style.css
 
-This is an external css files which is written to style all html elements.
+This is an external css file which is written to style all html elements.
 
 #### semantic markup
 ##### Document structure tags:
@@ -101,9 +100,9 @@ This is an external css files which is written to style all html elements.
 ## BioCW.js:
 This JavaScript file contains following functions.
 
-`enable()` : Enables the dropdown lists on the index.py on reset button click envnt 
+`enable()` : Enables the dropdown lists on the index.py on reset button click event or page refresh. 
 
-`disable()` : Disables the other drop-down lists if one is selected, an event handler for accordion style display to display the codon frequency table.
+`disable()` : Disables the other drop-down lists if one is selected. 
 
 `loadindex()` : Loads index.py file on index.html's body onload() event.
 
@@ -111,16 +110,17 @@ This JavaScript file contains following functions.
 
 ## jQuery.js:
 
-This jQuery file has a document.ready event which scans the codon frequency and chromosome codon frequency table for the overused and least overused codons and highlights the corresponding parent column. The following criteria are used to calculate.
-Overused codons : If the frequency of the said codon is 150% of the frequency of the same codon in the Chromosome Codon Frequency table then it is considered as an overused codon.
+This jQuery file has a document.ready event which scans the codon frequency and chromosome codon frequency table for the overused and underused codons and highlights the corresponding parent column. Our project team came up with the following criteria to be used to calculate the following.
 
-Underused Codons : If the frequency of the said codon is 50% of the frequency of the same codon in the Chromosome Codon Frequency table then it is considered as an underused codon.
+Overused codons : If the frequency of the said codon in Gene Codon Frequency table is more than 150% of the frequency of the same codon in the Chromosome Codon Frequency table then it is considered as an overused codon.
 
-Rare Codons : If the codon frequency in a gene is less than 0.50 then these are considered to be rare codons.
+Underused Codons : If the frequency of the said codon in Gene Codon Frequency table is less than 50% of the frequency of the same codon in the Chromosome Codon Frequency table then it is considered as an underused codon.
+
+Rare Codons : If the codon frequency in Chromosome Codon Frequency table is less than 0.50 then we would consider these codons as rare codons. However we decided to hightlight only those records where codon frequency of such codon in the Gene Codon Frequency Table is greater than it's frequency in the Choromosome Codon Frequency table as we thought that would be interesting information for the user.
 
 ## email.js
 
-`printemail()` : Prints email in a format which is hidden from scrapping programmes.
+`printemail()` : Prints email in a format which is hidden from web scraping programmes.
 
 
 ## Lastmodified.js:
