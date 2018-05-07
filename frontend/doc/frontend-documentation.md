@@ -7,7 +7,7 @@ If the Shebang line /usr/local/bin/python3  does not work then change it to /usr
 
 The front end is developed to display the detailed information about the genes on the given chromosome -Chromosome 18 based on the user selection.
 
-## Requirements:  A server set-up, python 3
+## Requirements:  A server set-up and python 3
 
 ## File structure:
 
