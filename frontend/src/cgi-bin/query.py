@@ -405,8 +405,9 @@ html+="</table>"
 html+="</div>" # conainer
 html+="</div>" # panel
 html+="</div>" # wrapper
-
-
+html+="<div class='select-buttons'>"
+html+="<input type='button' class='back-button' value='Home' onClick= loadIndex()>" # Home button back to the index page. This is Ed's suggestion.
+html+="</div>"
 
 html+="<footer class='footer'>"
 html+="<p>Group : 1 Chromosome: 18 </p>"
