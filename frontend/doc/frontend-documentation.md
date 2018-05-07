@@ -81,7 +81,7 @@ This function file is written for the frontend to achieve following functionalit
 
 `highlight_coding_seq()` : this function inserts the delimeters at the start and end of the coding region. An offset is used to check that the positions are not changed whilst inserting the delimiters
 
-`hilite()` :  The delimeters are replaced by <mark class= ‘highlight’> which is predefined in the CSS file. Once it is done then the new highlighted DNA is displayed on the browser where the mark element is rendered accordingly.
+`hilite()` :  The delimeters are replaced by `<mark class= ‘highlight’>` which is predefined in the CSS file. Once it is done then the new highlighted DNA is displayed on the browser where the mark element is rendered accordingly.
 
 `highlight_res_site()`  and `hilite_res()` : To identify and highlight the restriction enzyme cut sites.
 
