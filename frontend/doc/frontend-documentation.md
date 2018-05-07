@@ -1,7 +1,7 @@
 ## Front End Documentation:
 
 #### Imp Notes: 
-The Shebang line might need to change from /usr/local/bin/python3 to /usr/bin/env python3 
+If the Shebang line /usr/local/bin/python3  does not work then change it to /usr/bin/env python3 or /usr/bin/env python depending on the python directory path on the local machine.
 
 
 
