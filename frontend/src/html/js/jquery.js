@@ -29,17 +29,18 @@ $(document).ready(function(){
 	
 	
 	$('#codon_chrom_freq tr.high_chrom_codon td:nth-child(3)').each(function(){  /* Ref: https://stackoverflow.com/questions/7656860/jquery-highlight-row-based-on-column-value?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa*/
-		var freq=$(this).text() 
+		var chromCodonFreq=$(this).text() /* freq from chrom table*/
 		
-		var over=$(this).parent().text().substring(0,3);/* freq from chrom table*/
+		var over=$(this).parent().text().substring(0,3);/* codon */
+		
 		$('#codon_freq tr.high_codon td:nth-child(1)').each(function(){
-			var codonfreq=$(this).parent().text().substring(4,8)
+			var geneCodonFreq=$(this).parent().text().substring(4,8)
 			
-			if($(this).text()==over &&  codonfreq > (150 * freq)/100){  /* Overused codons if more than 150% of the corresponding codon in the entire chromosome*/
+			if($(this).text()==over &&  geneCodonFreq > (150 * chromCodonFreq)/100){  /* Overused codons if more than 150% of the corresponding codon in the entire chromosome*/
 				
 				$(this).parent().css('background-color', '#33ccff');
 			}
-			if($(this).text()==over &&  codonfreq < (50 * freq)/100){  /* Underused codons if less than 50% of the corresponding codon in the entire chromosome*/
+			if($(this).text()==over &&  geneCodonFreq < (50 * chromCodonFreq)/100){  /* Underused codons if less than 50% of the corresponding codon in the entire chromosome*/
 				
 				$(this).parent().css('background-color', '#85929E');
 			}

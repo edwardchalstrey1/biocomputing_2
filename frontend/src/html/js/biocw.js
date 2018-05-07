@@ -24,7 +24,7 @@ elements and an accordian function.
 
 */
 
-/*  This function disbles  the submit button and rest of the dropdown lists based on the selection */
+/*  This function disables  the submit button and rest of the dropdown lists based on the selection */
 function disable(optid){
 	document.getElementById("submit").disabled=false;
 	switch(optid){
